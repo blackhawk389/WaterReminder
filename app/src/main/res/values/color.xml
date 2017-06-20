@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="viewpager_statusbar">#d3d3d3</color>
+    <color name="divider">#00ffffff</color>
+</resources>

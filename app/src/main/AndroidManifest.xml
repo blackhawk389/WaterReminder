@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.sarahn.waterreminderapp" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon" >
+        <activity
+            android:name=".ActCalculate"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ActLauncher"
+            android:label="@string/title_activity_act_launcher"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActViewPager"
+            android:label="@string/title_activity_act_view_pager"
+            android:theme="@style/FullScreen" >
+        </activity>
+        <activity android:name=".activities.ActNotification" >
+        </activity>
+
+        <receiver android:name=".classes.ClsBroadCastReciver" />
+        <receiver android:name=".classes.ClsEndBroadcastReciever" />
+
+        <activity
+            android:name=".activities.ActMainScreen"
+            android:label="@string/title_activity_act_main_screen" >
+        </activity>
+
+        <service android:name=".classes.ClsJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+        </service>
+    </application>
+
+</manifest>

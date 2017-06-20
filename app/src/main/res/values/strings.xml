@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">WaterReminderApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_act_launcher">ActLauncher</string>
+    <string name="title_activity_act_view_pager">ActViewPager</string>
+
+    <string name="basic">Basic Daily Movement With No Excercise</string>
+    <string name="light">Daily Routein With Minimal Excercise Of 0-20 Minutes</string>
+    <string name="active">Increased Physical Activity With Excercise of 30-60 Minutes</string>
+    <string name="very_active">Strenous Aerobic Or WeightLifting of 60 Minutes</string>
+
+    <string name="modrate">Moderate</string>
+    <string name="hot">Hot</string>
+    <string name="cold">Cold</string>
+    <string name="title_activity_act_main_screen">ActMainScreen</string>
+
+</resources>

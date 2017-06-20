@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+
+
+    </style>
+
+    <style name="FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:navigationBarColor">#20111111</item>
+        <item name="android:statusBarColor">#20111111</item>
+    </style>
+
+    <style name="divident" parent="AlertDialog.AppCompat">
+        <item name="android:colorControlNormal">@color/divider</item>
+    </style>
+
+
+
+    <!--<style name="ActivityTransition" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:windowEnterAnimation">@anim/activity_slide_out</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/activity_slide_in</item>-->
+    <!--</style>-->
+</resources>

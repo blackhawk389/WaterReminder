@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string-array name="activity">
+       <item>@string/basic</item>
+       <item>@string/light</item>
+       <item>@string/active</item>
+       <item>@string/very_active</item>
+   </string-array>
+
+    <string-array name="climate">
+        <item>@string/modrate</item>
+        <item>@string/hot</item>
+        <item>@string/cold</item>
+    </string-array>
+</resources>
