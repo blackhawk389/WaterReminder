@@ -57,15 +57,10 @@ public class NotificationUtills {
 //    }
 
 
-    public static float NotificationCounter(){
-        float diff = ClsTimePickerDialogBuilder.timeDifference;
+    public static int NotificationCounter(){
+        int diff = ClsTimePickerDialogBuilder.timeDifference;
         int waterGlass = ClsRequirementCalculator.mlToGlass();
 
         return  (Math.abs(diff)) * 60 / waterGlass;
     }
-
-
-
-
-
 }

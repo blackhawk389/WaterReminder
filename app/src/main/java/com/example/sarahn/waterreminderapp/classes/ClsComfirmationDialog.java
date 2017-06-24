@@ -82,7 +82,6 @@ public class ClsComfirmationDialog {
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        Toast.makeText(context, " clicked", Toast.LENGTH_SHORT).show();
                         displayDialog(context).show();
                     }
                 });

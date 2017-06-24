@@ -82,7 +82,6 @@ public class SharedPrefUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(KEY_CLIMATE, climate);
         editor.apply();
-        Toast.makeText(context, "climate " + getClimate(context), Toast.LENGTH_SHORT).show();
 
     }
 

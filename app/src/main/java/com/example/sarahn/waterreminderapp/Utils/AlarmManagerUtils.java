@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.sarahn.waterreminderapp.classes.ClsBroadCastReciver;
@@ -27,8 +28,8 @@ public class AlarmManagerUtils {
         time.set(Calendar.MINUTE, ClsTimePickerDialogBuilder.fromMin);
         time.set(Calendar.SECOND, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent(context));
-        Toast.makeText(context, "setstartAlarm" + ClsTimePickerDialogBuilder.fromHour
-                +  ClsTimePickerDialogBuilder.fromMin, Toast.LENGTH_SHORT).show();
+        Log.i("MainActivity " , " start" + ClsTimePickerDialogBuilder.fromHour + " : "
+                + ClsTimePickerDialogBuilder.fromMin );
     }
 
     private static PendingIntent pendingIntent(Context context){
@@ -47,10 +48,9 @@ public class AlarmManagerUtils {
         time.set(Calendar.MINUTE, ClsTimePickerDialogBuilder.toMin);
         time.set(Calendar.SECOND, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), endPendingIntent(context));
-        Toast.makeText(context, "set end alarm"
-                + ClsTimePickerDialogBuilder.toHour
-                +  ClsTimePickerDialogBuilder.toMin
-                , Toast.LENGTH_SHORT).show();
+
+        Log.i("MainActivity ", " end" + ClsTimePickerDialogBuilder.toHour + " : "
+                + ClsTimePickerDialogBuilder.toMin);
     }
 
     private static PendingIntent endPendingIntent(Context context){

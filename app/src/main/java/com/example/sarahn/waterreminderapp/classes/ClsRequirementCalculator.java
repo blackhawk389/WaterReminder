@@ -28,12 +28,7 @@ public class ClsRequirementCalculator {
         activity = SharedPrefUtils.getActivityLevel(context);
         climate = SharedPrefUtils.getClimate(context);
 
-        Toast.makeText(context, "Climate " + climate, Toast.LENGTH_SHORT).show();
-
         weight = weight /0.024f;
-
-
-
 
         try {
            climateCal =  ClimateCal();
