@@ -16,11 +16,15 @@ import com.example.sarahn.waterreminderapp.activities.ActMainScreen;
 import com.example.sarahn.waterreminderapp.classes.ClsComfirmationDialog;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 import com.example.sarahn.waterreminderapp.classes.ClsTimePickerDialogBuilder;
+import com.example.sarahn.waterreminderapp.classes.ConsumedService;
 
 /**
  * Created by SarahN on 6/18/2017.
  */
 public class NotificationUtills {
+
+    public final static String ACTION_INCREMENT_WATER = "increment_water";
+    public final static String ACTION_CANCEL = "cancel";
 
     public static void notificationBuilder(Context context){
 
@@ -31,7 +35,8 @@ public class NotificationUtills {
                 .setLights(0xFF0000FF, 4000, 1000)
 
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM))
-
+                .addAction(incrementWaterCount(context))
+                        .addAction(cancelNotification(context))
                // .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.bells))
                 .setAutoCancel(true);
 
@@ -45,16 +50,35 @@ public class NotificationUtills {
         return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-//    private static NotificationCompat.Action incrementWaterCount(Context context){
-//
-//        Intent intent = new Intent(context, IntentServiceWaterReminder.class);
-//        intent.setAction(ReminderTask.ACTION_INCREMENT_WATER);
-//
-//        PendingIntent pendingIntent = PendingIntent.getService(context, 001, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-//
-//        NotificationCompat.Action drinkWater = new NotificationCompat.Action(R.mipmap.ic_launcher, "I did it!",pendingIntent);
-//        return drinkWater;
-//    }
+    private static NotificationCompat.Action incrementWaterCount(Context context){
+
+        Intent intent = new Intent(context, ConsumedService.class);
+        intent.setAction(ACTION_INCREMENT_WATER);
+
+        PendingIntent pendingIntent = PendingIntent.getService(context, 001, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        NotificationCompat.Action drinkWater = new NotificationCompat.Action(R.mipmap.ic_launcher, "I did it!",pendingIntent);
+        return drinkWater;
+    }
+
+    private static NotificationCompat.Action cancelNotification(Context context){
+
+        Intent intent = new Intent(context, ConsumedService.class);
+           intent.setAction(ACTION_CANCEL);
+
+        PendingIntent pendingIntent = PendingIntent.getService(context, 001, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        NotificationCompat.Action drinkWater = new NotificationCompat.Action(R.mipmap.ic_launcher, "Cancel",pendingIntent);
+        return drinkWater;
+    }
+
+    public static void cancelAll(Context context){
+
+        NotificationManager notificationManager = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancelAll();
+
+    }
 
 
     public static int NotificationCounter(){

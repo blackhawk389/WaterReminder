@@ -45,6 +45,10 @@
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
 
+        <service android:name=".classes.ConsumedService">
+
+        </service>
+
     </application>
 
 </manifest>

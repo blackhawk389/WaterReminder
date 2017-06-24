@@ -17,6 +17,7 @@ public class SharedPrefUtils {
     private static int[] userData;
     private final static int DEFAULT_VALUE = 0;
     private final static String DEFUALT_STRING_VALUE = null;
+    private final static String KEY_CONSUMED = "consumed";
 
 
 
@@ -85,6 +86,17 @@ public class SharedPrefUtils {
 
     }
 
+    synchronized public static void setConsumed(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_CONSUMED, consume);
+        editor.apply();
+    }
+
+    public static int getConsumed(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_CONSUMED, DEFAULT_VALUE);
+    }
 
 //    public static int[] getUserData(Context context){
 //        // how to make lines of code follow synchronization, step by step execution

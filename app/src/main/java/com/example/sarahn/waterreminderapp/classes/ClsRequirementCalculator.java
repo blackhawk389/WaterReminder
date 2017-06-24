@@ -18,7 +18,7 @@ public class ClsRequirementCalculator {
 
     private static String activity;
     private static String climate;
-    private static int calculated;
+    public static int calculated;
 
     public static double calculateRequirement(Context context){
 
@@ -106,7 +106,7 @@ public class ClsRequirementCalculator {
         return calculated/250;
     }
 
-    private final static int waterInmili(float weight, int activityLevel, int climate){
+    public final static int waterInmili(float weight, int activityLevel, int climate){
         return (int) weight + activityLevel + climate;
     }
 }
