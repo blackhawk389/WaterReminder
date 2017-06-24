@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
 import com.example.sarahn.waterreminderapp.Utils.AlarmManagerUtils;
+import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
 import com.example.sarahn.waterreminderapp.activities.ActMainScreen;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -14,6 +16,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  * Created by SarahN on 6/19/2017.
  */
 public class ClsComfirmationDialog {
+
+
 
 
     public static SweetAlertDialog displayDialog(final Context context){
@@ -51,7 +55,7 @@ public class ClsComfirmationDialog {
                                         context.startActivity(intent);
                                     }
                                 })
-                                .setContentText("You can always change settings anytime from setting tab!")
+                                .setContentText("You can always change settings anytime from setting tab! duration will be " + NotificationUtills.NotificationCounter() + "min")
                                 .show();
 
                     }
@@ -67,5 +71,48 @@ public class ClsComfirmationDialog {
               //  .show();
 
         return dialog;
+    }
+
+    public static SweetAlertDialog displayWarningDialog(final Context context){
+
+        SweetAlertDialog dialog =  new SweetAlertDialog (context, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Re Select")
+                .setContentText("start time should be not be less than end time")
+                .setConfirmText("Okay")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        Toast.makeText(context, " clicked", Toast.LENGTH_SHORT).show();
+                        displayDialog(context).show();
+                    }
+                });
+
+        return dialog;
+
+    }
+
+    public static SweetAlertDialog displayWarningDuration(final Context context){
+
+        final SweetAlertDialog dialog =  new SweetAlertDialog (context, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Unrealistic duration")
+                .setContentText("The duration should be atleast of 8 hours")
+                .setConfirmText("set again")
+                .setCancelText("Okay")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                       ClsTimePickerDialogBuilder.showDialog(context).show(((Activity) context).getFragmentManager(), "timepicker");
+
+                    }
+                })
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.cancel();
+                    }
+                });
+
+        return dialog;
+
     }
 }

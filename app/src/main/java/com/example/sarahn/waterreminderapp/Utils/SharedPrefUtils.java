@@ -16,6 +16,7 @@ public class SharedPrefUtils {
     private final static String KEY_CLIMATE = "climate";
     private static int[] userData;
     private final static int DEFAULT_VALUE = 0;
+    private final static String DEFUALT_STRING_VALUE = null;
 
 
 
@@ -38,20 +39,19 @@ public class SharedPrefUtils {
         return prefs.getBoolean(KEY_IS_TRUE, true);
     }
 
-    synchronized public static void setUserData(Context context, int weight, int activity, int climate){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_WEIGHT,weight);
-        editor.putInt(KEY_ACTIVITY_LEVEL, activity);
-        editor.putInt(KEY_CLIMATE, climate);
-        editor.apply();
-    }
+//    synchronized public static void setUserData(Context context, int weight, int activity, int climate){
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+//        SharedPreferences.Editor editor = prefs.edit();
+//        editor.putInt(KEY_WEIGHT,weight);
+//        editor.putInt(KEY_ACTIVITY_LEVEL, activity);
+//        editor.putInt(KEY_CLIMATE, climate);
+//        editor.apply();
+//    }
     synchronized public static void setWeight(Context context, int weight){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_WEIGHT,weight);
+        editor.putInt(KEY_WEIGHT, weight);
         editor.apply();
-        Toast.makeText(context, " " + getWeight(context) , Toast.LENGTH_SHORT).show();
     }
 
     public static int getWeight(Context context){
@@ -59,41 +59,42 @@ public class SharedPrefUtils {
         return prefs.getInt(KEY_WEIGHT, DEFAULT_VALUE);
     }
 
-    public static int getActivityLevel(Context context){
+    public static String getActivityLevel(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getInt(KEY_ACTIVITY_LEVEL, DEFAULT_VALUE);
+        return prefs.getString(KEY_ACTIVITY_LEVEL, DEFUALT_STRING_VALUE);
     }
 
-    public static int getClimate(Context context){
+    public static String getClimate(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getInt(KEY_CLIMATE, DEFAULT_VALUE);
+        return prefs.getString(KEY_CLIMATE, DEFUALT_STRING_VALUE);
     }
 
-    synchronized public static void setActivityLevel(Context context,int activity){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_ACTIVITY_LEVEL, activity);
-        editor.apply();
-        Toast.makeText(context, " " + getActivityLevel(context) , Toast.LENGTH_SHORT).show();
-    }
-
-    synchronized public static void setClimate(Context context, int climate){
+    synchronized public static void setActivityLevel(Context context,String activity){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_CLIMATE, climate);
+        editor.putString(KEY_ACTIVITY_LEVEL, activity);
         editor.apply();
-        Toast.makeText(context, " " + getClimate(context) , Toast.LENGTH_SHORT).show();
+
+    }
+
+    synchronized public static void setClimate(Context context, String climate){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(KEY_CLIMATE, climate);
+        editor.apply();
+        Toast.makeText(context, "climate " + getClimate(context), Toast.LENGTH_SHORT).show();
+
     }
 
 
-    public static int[] getUserData(Context context){
-        // how to make lines of code follow synchronization, step by step execution
-        SharedPreferences prefs =  PreferenceManager.getDefaultSharedPreferences(context);
-        int weight = prefs.getInt(KEY_WEIGHT, DEFAULT_VALUE);
-        int activity = prefs.getInt(KEY_ACTIVITY_LEVEL, DEFAULT_VALUE);
-        int climate = prefs.getInt(KEY_CLIMATE, DEFAULT_VALUE);
-        userData = new int[]{weight, activity, climate};
-
-        return userData;
-    }
+//    public static int[] getUserData(Context context){
+//        // how to make lines of code follow synchronization, step by step execution
+//        SharedPreferences prefs =  PreferenceManager.getDefaultSharedPreferences(context);
+//        int weight = prefs.getInt(KEY_WEIGHT, DEFAULT_VALUE);
+//        int activity = prefs.getInt(KEY_ACTIVITY_LEVEL, DEFAULT_VALUE);
+//        int climate = prefs.getInt(KEY_CLIMATE, DEFAULT_VALUE);
+//        userData = new int[]{weight, activity, climate};
+//
+//        return userData;
+//    }
 }

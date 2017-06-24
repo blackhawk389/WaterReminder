@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sarahn.waterreminderapp" >
 
+    <uses-permission android:name="ANDROID.PERMISSION.RECEIVE_BOOT_COMPLETED"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -42,6 +44,7 @@
         <service android:name=".classes.ClsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
+
     </application>
 
 </manifest>

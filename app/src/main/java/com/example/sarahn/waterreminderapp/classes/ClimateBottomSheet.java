@@ -2,6 +2,7 @@ package com.example.sarahn.waterreminderapp.classes;
 
 import android.content.Context;
 import android.support.design.widget.BottomSheetDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -46,8 +47,8 @@ public class ClimateBottomSheet {
             @Override
             public void onClick(View v) {
                 bottomSheetClimate.dismiss();
-                int activityLevel = numberPickerClimate.getValue()-1;
-                SharedPrefUtils.setClimate(context, activityLevel);
+                int climate = numberPickerClimate.getValue()-1;
+                SharedPrefUtils.setClimate(context, values[climate]);
             }
         });
 
@@ -70,5 +71,4 @@ public class ClimateBottomSheet {
 
         return bottomSheetClimate;
     }
-
 }

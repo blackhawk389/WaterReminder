@@ -10,8 +10,11 @@ import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
  */
 public class ClsJobService extends JobService {
 
+    public static JobParameters jobId;
+
     @Override
     public boolean onStartJob(JobParameters params) {
+        jobId = params;
         NotificationUtills.notificationBuilder(getApplicationContext());
         return true;
     }
@@ -20,4 +23,6 @@ public class ClsJobService extends JobService {
     public boolean onStopJob(JobParameters params) {
         return false;
     }
+
+
 }

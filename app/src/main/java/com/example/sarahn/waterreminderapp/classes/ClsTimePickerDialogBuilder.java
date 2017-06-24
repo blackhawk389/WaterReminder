@@ -18,6 +18,7 @@ public class ClsTimePickerDialogBuilder{
     public static int fromMin;
     public static int toHour;
     public static int toMin;
+    public static float timeDifference;
 
 
     public static TimePickerDialog showDialog(final Context context){
@@ -32,15 +33,24 @@ public class ClsTimePickerDialogBuilder{
                                                           toHour = i2;
                                                           toMin = i3;
 
-                                                          Log.i("hour ########## " + fromHour + " " + fromMin ," to "
-                                                                  + toHour + " " + toMin );
+                                                          Log.i("hour ########## " + fromHour + " " + fromMin, " to "
+                                                                  + toHour + " " + toMin);
 
                                                         ClsComfirmationDialog.displayDialog(context).show();
-
+                                                          timeDifference = (fromMin - toMin) + ( fromHour - toHour);
+                                                          if(timeDifference > 0){
+                                                              ClsComfirmationDialog.displayWarningDialog(context).show();
+                                                          }else if(Math.abs(timeDifference) <= 2 ){
+                                                              ClsComfirmationDialog.displayWarningDuration(context).show();
+                                                          }
+                                                          Log.i("difference ------ ", " " + timeDifference);
                                                       }}, now.get(Calendar.HOUR),
                 now.get(Calendar.MINUTE),
                 false);
     }
+
+
+
 
 
 }

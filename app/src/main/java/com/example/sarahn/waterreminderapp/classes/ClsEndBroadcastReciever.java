@@ -1,5 +1,6 @@
 package com.example.sarahn.waterreminderapp.classes;
 
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,14 @@ import android.widget.Toast;
 public class ClsEndBroadcastReciever extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "fired end" , Toast.LENGTH_SHORT).show();
+
+
+        JobScheduler jobScheduler =  (JobScheduler) context.getSystemService (Context.JOB_SCHEDULER_SERVICE);
+        jobScheduler.cancel(0);
+
+//        Intent endjob = new Intent(context, CancelSchedular.class);
+//        context.startService(endjob);
+
+        Toast.makeText(context, "end alarm reciver", Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,64 +1,117 @@
 package com.example.sarahn.waterreminderapp.classes;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 /**
  * Created by SarahN on 6/13/2017.
  */
 public class ClsRequirementCalculator {
 
-    static int activity;
-    static int climate;
-    public static int calculated;
+    private static String activity;
+    private static String climate;
+    private static int calculated;
 
-    public static void calculateRequirement(Context context){
-        int weight = SharedPrefUtils.getWeight(context);
-        int activity = SharedPrefUtils.getActivityLevel(context);
-        int climate = SharedPrefUtils.getClimate(context);
+    public static double calculateRequirement(Context context){
 
-        int act = getActivityLevel();
-        calculated = act + (weight/2);
-    }
+        int climateCal = 0;
+        int activityCal = 0;
+        float weight = SharedPrefUtils.getWeight(context);
+        activity = SharedPrefUtils.getActivityLevel(context);
+        climate = SharedPrefUtils.getClimate(context);
 
-    private static int getActivityLevel(){
-        switch (activity){
-            case 1:
-                activity = 0;
-                break;
-            case 2:
-                activity = 200;
-                break;
-            case 3:
-                activity = 300;
-                break;
-            case 4:
-                activity = 700;
-                break;
+        Toast.makeText(context, "Climate " + climate, Toast.LENGTH_SHORT).show();
+
+        weight = weight /0.024f;
+
+
+
+
+        try {
+           climateCal =  ClimateCal();
+           activityCal = ActivityLevelCal();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i("Exception " , " ----" + e );
+            Toast.makeText(context, "please enter right information" + e, Toast.LENGTH_SHORT).show();
         }
 
-        return activity;
+
+        calculated = waterInmili(weight, climateCal, activityCal);
+        return mlToLiter(weight, climateCal, activityCal);
 
     }
 
-//    private static int getClimate(){
-//
-//        switch (climate){
-//            case 1:
-//                climate = ;
-//                break;
-//            case 2:
-//                climate = ;
-//                break;
-//            case 3:
-//                climate = 300;
-//                break;
-//
-//        }
-//
-//        return climate;
-//    }
+    private static int ActivityLevelCal() throws Exception{
+
+        int activityCal = 0;
+
+        switch (activity){
+            case "Basic Daily Movement With No Excercise":
+                activityCal = 0;
+                break;
+            case "Daily Routein With Minimal Excercise Of 0-20 Minutes":
+                activityCal = 250;
+                break;
+            case "Increased Physical Activity With Excercise of 30-60 Minutes":
+                activityCal = 500;
+                break;
+            case "Strenous Aerobic Or WeightLifting of 60 Minutes":
+                activityCal = 1000;
+                break;
+            default:
+                throw new Exception("No activity level matched");
+        }
+
+        return activityCal;
+
+    }
+
+    private static int ClimateCal() throws Exception{
+
+        int climateCal = 0;
+
+        switch (climate){
+            case "Hot":
+                climateCal = 750;
+                break;
+            case "Cold":
+                climateCal = 250;
+                break;
+            case "Moderate":
+                climateCal = 500;
+                break;
+            default:
+                throw new Exception("No climate case is match");
+        }
+
+        return climateCal;
+
+    }
 
 
+    private final static double mlToLiter(float weight, int activityCal, int climateCal){
+
+        float d = (weight + activityCal + climateCal)/1000;
+        DecimalFormat newFormat = new DecimalFormat("#.##");
+        double twoDecimal =  Double.valueOf(newFormat.format(d));
+
+        return twoDecimal;
+    }
+
+    public final static int mlToGlass(){
+        return calculated/250;
+    }
+
+    private final static int waterInmili(float weight, int activityLevel, int climate){
+        return (int) weight + activityLevel + climate;
+    }
 }

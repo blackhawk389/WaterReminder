@@ -28,7 +28,11 @@ public class ClsBottomSheetWeight {
         this.context = context;
         mBottomSheetDialog = new BottomSheetDialog(context);
         inflater = LayoutInflater.from(context);
-        values = new String[] {"30", "40", "50", "60", "70", "80", "90", "100", "110", "120"};
+        values = new String[] {"30","35", "40",
+                "45", "50", "55", "60",
+                "65", "70","75", "80",
+                "86", "90","95", "100",
+                "105", "110", "120"};
     }
 
     public BottomSheetDialog showDialog(){
@@ -54,7 +58,7 @@ public class ClsBottomSheetWeight {
             }
         });
 
-        minutePicker.setMaxValue(10);
+        minutePicker.setMaxValue(18);
         minutePicker.setMinValue(1);
 
         minutePicker.setDisplayedValues(values);

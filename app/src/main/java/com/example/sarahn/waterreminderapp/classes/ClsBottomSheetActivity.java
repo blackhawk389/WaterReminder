@@ -2,6 +2,7 @@ package com.example.sarahn.waterreminderapp.classes;
 
 import android.content.Context;
 import android.support.design.widget.BottomSheetDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -45,7 +46,7 @@ public class ClsBottomSheetActivity {
             public void onClick(View v) {
                 bottomSheetActivity.dismiss();
                 int activityLevel = numberPickerActivity.getValue()-1;
-                SharedPrefUtils.setActivityLevel(context, activityLevel);
+                SharedPrefUtils.setActivityLevel(context, values[activityLevel]);
             }
         });
 

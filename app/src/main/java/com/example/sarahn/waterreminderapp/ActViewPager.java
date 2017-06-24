@@ -44,6 +44,7 @@ public class ActViewPager extends Activity implements View.OnClickListener, View
 
     }
 
+
     @Override
     public void onClick(View v) {
 

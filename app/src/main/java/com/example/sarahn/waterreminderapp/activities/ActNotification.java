@@ -32,7 +32,8 @@ public class ActNotification extends Activity implements View.OnClickListener{
         btnSpan.setOnClickListener(this);
 
         tvNotification = (TextView) findViewById(R.id.tv_not);
-        tvNotification.setText("Your Water Requirement Is " + ClsRequirementCalculator.calculated);
+        tvNotification.setText("Your Water Requirement Is " + ClsRequirementCalculator.calculateRequirement(this)
+        + "and glass" + ClsRequirementCalculator.mlToGlass());
     }
 
     @Override
