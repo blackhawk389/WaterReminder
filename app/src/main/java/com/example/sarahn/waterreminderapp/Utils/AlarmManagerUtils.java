@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.sarahn.waterreminderapp.classes.ClsBroadCastReciver;
 import com.example.sarahn.waterreminderapp.classes.ClsEndBroadcastReciever;
 import com.example.sarahn.waterreminderapp.classes.ClsTimePickerDialogBuilder;
+import com.example.sarahn.waterreminderapp.classes.MyApplication;
 
 import java.util.Calendar;
 
@@ -20,14 +21,14 @@ import java.util.Calendar;
 public class AlarmManagerUtils {
 
 
-    public static void setStartAlarm(Context context){
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+    public static void setStartAlarm(){
+        AlarmManager alarmManager = (AlarmManager) MyApplication.getContext().getSystemService(Context.ALARM_SERVICE);
         Calendar time = Calendar.getInstance();
         time.setTimeInMillis(System.currentTimeMillis());
         time.set(Calendar.HOUR_OF_DAY, ClsTimePickerDialogBuilder.fromHour);
         time.set(Calendar.MINUTE, ClsTimePickerDialogBuilder.fromMin);
         time.set(Calendar.SECOND, 0);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent(context));
+        alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent(MyApplication.getContext()));
         Log.i("MainActivity " , " start" + ClsTimePickerDialogBuilder.fromHour + " : "
                 + ClsTimePickerDialogBuilder.fromMin );
     }
@@ -37,17 +38,19 @@ public class AlarmManagerUtils {
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 01, intent, PendingIntent.FLAG_ONE_SHOT);
         return pendingIntent;
+
+
     }
 
 
-    public static void setEndAlarm(Context context){
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+    public static void setEndAlarm(){
+        AlarmManager alarmManager = (AlarmManager)  MyApplication.getContext().getSystemService(Context.ALARM_SERVICE);
         Calendar time = Calendar.getInstance();
         time.setTimeInMillis(System.currentTimeMillis());
         time.set(Calendar.HOUR_OF_DAY, ClsTimePickerDialogBuilder.toHour);
         time.set(Calendar.MINUTE, ClsTimePickerDialogBuilder.toMin);
         time.set(Calendar.SECOND, 0);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), endPendingIntent(context));
+        alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), endPendingIntent(MyApplication.getContext()));
 
         Log.i("MainActivity ", " end" + ClsTimePickerDialogBuilder.toHour + " : "
                 + ClsTimePickerDialogBuilder.toMin);

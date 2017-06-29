@@ -4,8 +4,10 @@
     package="com.example.sarahn.waterreminderapp" >
 
     <uses-permission android:name="ANDROID.PERMISSION.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
+        android:name=".classes.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -38,16 +40,15 @@
 
         <activity
             android:name=".activities.ActMainScreen"
-            android:label="@string/title_activity_act_main_screen" >
+            android:label="@string/title_activity_act_main_screen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
 
         <service android:name=".classes.ClsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
 
-        <service android:name=".classes.ConsumedService">
-
-        </service>
+        <service android:name=".classes.ConsumedService"></service>
 
     </application>
 

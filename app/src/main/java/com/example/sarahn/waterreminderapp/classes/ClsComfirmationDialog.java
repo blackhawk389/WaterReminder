@@ -44,8 +44,8 @@ public class ClsComfirmationDialog {
                                     @Override
                                     public void onClick(SweetAlertDialog sweetAlertDialog) {
 
-                                        AlarmManagerUtils.setStartAlarm(context);
-                                        AlarmManagerUtils.setEndAlarm(context);
+                                        AlarmManagerUtils.setStartAlarm();
+                                        AlarmManagerUtils.setEndAlarm();
                                         sweetAlertDialog.cancel();
 
 
