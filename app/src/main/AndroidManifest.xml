@@ -4,7 +4,6 @@
     package="com.example.sarahn.waterreminderapp" >
 
     <uses-permission android:name="ANDROID.PERMISSION.RECEIVE_BOOT_COMPLETED"></uses-permission>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".classes.MyApplication"
@@ -51,5 +50,4 @@
         <service android:name=".classes.ConsumedService"></service>
 
     </application>
-
 </manifest>

@@ -63,6 +63,15 @@ public class ActMainScreen extends AppCompatActivity
 
         if (id == R.id.action_settings) {
 
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hey, download this app! www.google.com");
+//            String shareBody = "Hey check out my app at: www.google.com"  ;
+//            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+//            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Share via"));
+
         }
 
         return super.onOptionsItemSelected(item);
