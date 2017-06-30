@@ -8,7 +8,7 @@
 
     <string name="basic">Basic Daily Movement With No Excercise</string>
     <string name="light">Daily Routein With Minimal Excercise Of 0-20 Minutes</string>
-    <string name="active">Increased Physical Activity With Excercise of 30-60 Minutes</string>
+    <string name="active">Increased Activity With Excercise of 30-60 Minutes</string>
     <string name="very_active">Strenous Aerobic Or WeightLifting of 60 Minutes</string>
 
     <string name="modrate">Moderate</string>

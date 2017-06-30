@@ -10,8 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.example.sarahn.waterreminderapp.ActCalculate;
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 
 /**
  * Created by SarahN on 6/13/2017.
@@ -47,6 +49,8 @@ public class ClsBottomSheetActivity {
                 bottomSheetActivity.dismiss();
                 int activityLevel = numberPickerActivity.getValue()-1;
                 SharedPrefUtils.setActivityLevel(context, values[activityLevel]);
+                ToastLogger.toastMessage(values[activityLevel]);
+                setText(SharedPrefUtils.getActivityLevel(context));
             }
         });
 
@@ -68,5 +72,9 @@ public class ClsBottomSheetActivity {
         numberPickerActivity.setOnValueChangedListener(new ClsOnValueChangeListmer());
 
         return bottomSheetActivity;
+    }
+
+    private void setText(String name){
+        ActCalculate.tvTwo.setText(name);
     }
 }

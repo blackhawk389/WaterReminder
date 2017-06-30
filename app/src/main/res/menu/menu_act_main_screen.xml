@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    tools:context="com.example.sarahn.waterreminderapp.activities.ActMainScreen">
+    tools:context="com.example.sarahn.waterreminderapp.activities.MainScreen">
 
     <item
         android:id="@+id/action_settings"

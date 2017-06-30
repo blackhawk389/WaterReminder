@@ -3,12 +3,10 @@ package com.example.sarahn.waterreminderapp.classes;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.widget.Toast;
 
 import com.example.sarahn.waterreminderapp.Utils.AlarmManagerUtils;
 import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
-import com.example.sarahn.waterreminderapp.activities.ActMainScreen;
+import com.example.sarahn.waterreminderapp.activities.MainScreen;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -51,7 +49,7 @@ public class ClsComfirmationDialog {
 
 
                                         Intent intent = new Intent();
-                                        intent.setClass(context, ActMainScreen.class);
+                                        intent.setClass(context, MainScreen.class);
                                         context.startActivity(intent);
                                     }
                                 })

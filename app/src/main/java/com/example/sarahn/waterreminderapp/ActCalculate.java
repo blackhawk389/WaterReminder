@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.activities.ActNotification;
+import com.example.sarahn.waterreminderapp.classes.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
 import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetWeight;
 import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetActivity;
@@ -16,14 +18,15 @@ import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 
 public class ActCalculate extends Activity implements View.OnClickListener{
 
-    TextView tvOne;
-    TextView tvTwo;
-    TextView tvThree;
+    public static TextView tvOne;
+    public static TextView tvTwo;
+    public static TextView tvThree;
     Button btnClaculate;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_main);
 
@@ -39,12 +42,19 @@ public class ActCalculate extends Activity implements View.OnClickListener{
     }
 
     @Override
+    public void onBackPressed() {
+        BackpressedDialog.showDialog(this).show();
+    }
+
+    @Override
     public void onClick(View v) {
 
         switch (v.getId()){
             case R.id.tv_one:
                 ClsBottomSheetWeight bottomSheet = new ClsBottomSheetWeight(ActCalculate.this);
                 bottomSheet.showDialog().show();
+                //make the bellow line of code only works when it return from bottomsheet
+               // tvOne.setText(Integer.toString(SharedPrefUtils.getWeight(this)));
                 break;
 
             case R.id.tv_two:

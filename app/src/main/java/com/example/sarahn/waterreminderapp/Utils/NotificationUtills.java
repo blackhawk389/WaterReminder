@@ -1,19 +1,15 @@
 package com.example.sarahn.waterreminderapp.Utils;
 
-import android.app.ActionBar;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
-import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
 
 import com.example.sarahn.waterreminderapp.R;
-import com.example.sarahn.waterreminderapp.activities.ActMainScreen;
-import com.example.sarahn.waterreminderapp.classes.ClsComfirmationDialog;
+import com.example.sarahn.waterreminderapp.activities.MainScreen;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 import com.example.sarahn.waterreminderapp.classes.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.classes.ConsumedService;
@@ -45,7 +41,7 @@ public class NotificationUtills {
     }
 
     private static PendingIntent pendingIntent(Context context){
-        Intent intent = new Intent(context, ActMainScreen.class);
+        Intent intent = new Intent(context, MainScreen.class);
         //wrap intent into pending intent
         return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }

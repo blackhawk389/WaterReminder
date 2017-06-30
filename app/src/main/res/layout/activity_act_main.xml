@@ -1,82 +1,152 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".ActMain">
 
-    <TextView
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".ActMain">
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="To calculate customized water requirement following information needed"
-        android:id="@+id/tv"/>
+        android:src="@drawable/droplet"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"/>
 
-   <LinearLayout
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:layout_centerVertical="true"
-       android:layout_centerHorizontal="true"
+    <me.grantland.widget.AutofitLayout
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/autofit"
+        >
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To calculate water requirement following"
+            android:id="@+id/tv"/>
+    </me.grantland.widget.AutofitLayout>
 
-       >
+    <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="information needed"
 
-       <TextView
-           android:layout_width="50dp"
-           android:layout_height="50dp"
-           android:clickable="true"
-           android:onClick="showDialogTVOne"
-           android:id="@+id/tv_one"
-           android:background="@drawable/textview_border"
-           />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/autofit"
+        android:id="@+id/tv_extends"/>
 
-       <TextView
-           android:layout_width="50dp"
-           android:layout_height="50dp"
-           android:clickable="true"
-           android:id="@+id/tv_two"
-           android:onClick="showDialogTVTwo"
-           android:background="@drawable/textview_border"
-           />
 
-       <TextView
-           android:layout_width="50dp"
-           android:layout_height="50dp"
-           android:clickable="true"
-           android:id="@+id/tv_three"
-           android:onClick="showDialogTVThree"
-           android:background="@drawable/textview_border"
-           />
-   </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginTop="150dp"
+            android:layout_below="@+id/tv_extends"
+            android:id="@+id/weight_layout"
+            >
 
-   <LinearLayout
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:layout_centerVertical="true"
-       android:id="@+id/ll">
+            <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Weight"
+                android:layout_gravity="center"/>
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="weight"/>
+            <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:onClick="showDialogTVOne"
+                android:id="@+id/tv_one"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="right"
+                android:background="@drawable/textview_border"
+                />
+        </LinearLayout>
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="activity level"/>
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="climate"/>
-   </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="5dp"
+            android:id="@+id/al_layout"
+            android:layout_below="@+id/weight_layout"
+            >
 
-    <Button
+            <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Activity Level"
+                android:layout_gravity="center"/>
+
+            <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:id="@+id/tv_two"
+                android:layout_weight="1.6"
+                android:gravity="center"
+                android:layout_gravity="right"
+                android:onClick="showDialogTVTwo"
+                android:background="@drawable/textview_border"
+                />
+            />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="5dp"
+            android:id="@+id/climate_layout"
+            android:layout_below="@+id/al_layout"
+            >
+
+            <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Climate"
+                android:layout_gravity="center"/>
+
+            <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:layout_weight="1.1"
+                android:id="@+id/tv_three"
+                android:gravity="center"
+                android:onClick="showDialogTVThree"
+                android:background="@drawable/textview_border"
+                />
+            />
+        </LinearLayout>
+
+    <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="Calculate"
         android:id="@+id/btn_calculate"
+        android:layout_marginBottom="10dp"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>

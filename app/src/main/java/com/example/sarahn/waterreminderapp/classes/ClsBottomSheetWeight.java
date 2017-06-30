@@ -10,8 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.example.sarahn.waterreminderapp.ActCalculate;
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 
 /**
  * Created by SarahN on 6/12/2017.
@@ -48,6 +51,9 @@ public class ClsBottomSheetWeight {
                 mBottomSheetDialog.dismiss();
                 String weight = values[minutePicker.getValue()-1];
                 SharedPrefUtils.setWeight(context, Integer.parseInt(weight));
+                ToastLogger.toastMessage("Weight " + weight);
+                //maybe using rxjava
+                setText(weight);
             }
         });
 
@@ -69,5 +75,9 @@ public class ClsBottomSheetWeight {
         minutePicker.setOnValueChangedListener(new ClsCallbackWeight());
 
         return mBottomSheetDialog;
+    }
+
+    private void setText(String weight){
+        ActCalculate.tvOne.setText(weight);
     }
 }

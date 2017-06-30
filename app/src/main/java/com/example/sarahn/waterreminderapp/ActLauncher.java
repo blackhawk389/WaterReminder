@@ -14,6 +14,7 @@ public class ActLauncher extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_launcher);
 
+        //splash screen
         new Handler().postDelayed(new ClsSplashRunnable(this), 4000);
     }
 

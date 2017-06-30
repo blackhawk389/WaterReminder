@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.example.sarahn.waterreminderapp.ActCalculate;
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 
 /**
  * Created by SarahN on 6/16/2017.
@@ -49,6 +51,8 @@ public class ClimateBottomSheet {
                 bottomSheetClimate.dismiss();
                 int climate = numberPickerClimate.getValue()-1;
                 SharedPrefUtils.setClimate(context, values[climate]);
+                ToastLogger.toastMessage(values[climate]);
+                setText(SharedPrefUtils.getClimate(context));
             }
         });
 
@@ -70,5 +74,9 @@ public class ClimateBottomSheet {
         numberPickerClimate.setOnValueChangedListener(new ClimateValueChangedListener());
 
         return bottomSheetClimate;
+    }
+
+    private void setText(String name){
+        ActCalculate.tvThree.setText(name);
     }
 }

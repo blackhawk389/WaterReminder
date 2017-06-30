@@ -29,13 +29,14 @@ public class SharedPrefUtils {
 
     synchronized public static void setIsTrue(Boolean istrue, Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_IS_TRUE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(KEY_IS_TRUE, istrue);
         editor.apply();
 
     }
 
-    public static Boolean getPreference(Context context){
+    public static Boolean getIsTrue(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean(KEY_IS_TRUE, true);
     }
@@ -50,6 +51,7 @@ public class SharedPrefUtils {
 //    }
     synchronized public static void setWeight(Context context, int weight){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_WEIGHT);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_WEIGHT, weight);
         editor.apply();
@@ -72,6 +74,7 @@ public class SharedPrefUtils {
 
     synchronized public static void setActivityLevel(Context context,String activity){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_ACTIVITY_LEVEL);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(KEY_ACTIVITY_LEVEL, activity);
         editor.apply();
@@ -80,6 +83,7 @@ public class SharedPrefUtils {
 
     synchronized public static void setClimate(Context context, String climate){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_CLIMATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(KEY_CLIMATE, climate);
         editor.apply();
@@ -88,6 +92,7 @@ public class SharedPrefUtils {
 
     synchronized public static void setConsumed(Context context, int consume){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_CONSUMED);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_CONSUMED, consume);
         editor.apply();

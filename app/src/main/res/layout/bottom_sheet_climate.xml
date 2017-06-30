@@ -14,20 +14,20 @@
         android:orientation="horizontal"
         android:id="@+id/ll">
 
-        <Button
+        <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:id="@+id/btn_close"
             android:text="close"/>
 
-        <Button
+        <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_save"
             android:text="save"/>
 
-        <TextView
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll">
 
-        <NumberPicker
+        <com.example.sarahn.waterreminderapp.customsViews.CustomNumberPicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:showDividers="none"
@@ -49,7 +49,7 @@
             android:descendantFocusability="blocksDescendants"
             android:theme="@style/divident"
             android:id="@+id/np">
-        </NumberPicker>
+        </com.example.sarahn.waterreminderapp.customsViews.CustomNumberPicker>
     </RelativeLayout>
 
 </RelativeLayout>
