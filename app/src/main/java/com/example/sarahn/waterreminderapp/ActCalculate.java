@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sarahn.waterreminderapp.Utils.Logging;
+import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.activities.ActTimeSpanChooser;
 import com.example.sarahn.waterreminderapp.classes.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
@@ -68,10 +70,28 @@ public class ActCalculate extends Activity implements View.OnClickListener{
 
             case R.id.btn_calculate:
                 ClsRequirementCalculator.calculateRequirement(ActCalculate.this);
-                Intent intent = new Intent(ActCalculate.this, ActTimeSpanChooser.class);
-                startActivity(intent);
+                if(validateFeilds()){
+                    Intent intent = new Intent(ActCalculate.this, ActTimeSpanChooser.class);
+                    startActivity(intent);
+                }else{
+                    ToastLogger.toastMessage("please fill all feilds");
+                }
+
                 break;
         }
 
+    }
+
+    private boolean validateFeilds(){
+        boolean isTrue;
+        if(tvOne.getText().toString().matches("") ||
+                tvTwo.getText().toString().matches("") ||
+                tvThree.getText().toString().matches("")){
+            Logging.logMessage("all true");
+            isTrue = true;
+        }else{
+            isTrue = false;
+        }
+        return isTrue;
     }
 }
