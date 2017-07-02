@@ -1,4 +1,4 @@
-package com.example.sarahn.waterreminderapp.classes;
+package com.example.sarahn.waterreminderapp.dialogs;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.content.Intent;
 import com.example.sarahn.waterreminderapp.Utils.AlarmManagerUtils;
 import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
 import com.example.sarahn.waterreminderapp.activities.MainScreen;
+import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -23,8 +24,8 @@ public class ClsComfirmationDialog {
        SweetAlertDialog dialog =  new SweetAlertDialog (context, SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Selected Time Span")
                 .setContentText("From " + ClsTimePickerDialogBuilder.fromHour +
-                        ": " + ClsTimePickerDialogBuilder.fromMin + " " + ClsAMOrPM.isAMOrPM(ClsTimePickerDialogBuilder.fromHour) + "To " + ClsTimePickerDialogBuilder.toHour +
-                        ": " + ClsTimePickerDialogBuilder.toMin + " " + ClsAMOrPM.isAMOrPM(ClsTimePickerDialogBuilder.fromMin))
+                        ":" + ClsTimePickerDialogBuilder.fromMin + " To " + ClsTimePickerDialogBuilder.toHour +
+                        ":" + ClsTimePickerDialogBuilder.toMin)
 
                 .setCancelText("Set again")
                 .setConfirmText("Confirm")

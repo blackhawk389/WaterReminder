@@ -1,10 +1,11 @@
-package com.example.sarahn.waterreminderapp.Utils;
+package com.example.sarahn.waterreminderapp.classes;
 
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 
 import java.math.BigDecimal;
@@ -36,7 +37,7 @@ public class ClsRequirementCalculator {
         } catch (Exception e) {
             e.printStackTrace();
             Log.i("Exception ", " ----" + e);
-            Toast.makeText(context, "please enter right information" + e, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(context, "please enter right information" + e, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -57,7 +58,7 @@ public class ClsRequirementCalculator {
             case "Daily Routein With Minimal Excercise Of 0-20 Minutes":
                 activityCal = 250;
                 break;
-            case "Increased Physical Activity With Excercise of 30-60 Minutes":
+            case "Increased Activity With Excercise of 30-60 Minutes":
                 activityCal = 500;
                 break;
             case "Strenous Aerobic Or WeightLifting of 60 Minutes":

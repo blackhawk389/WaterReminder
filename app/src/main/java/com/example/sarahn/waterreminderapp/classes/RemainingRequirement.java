@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.example.sarahn.waterreminderapp.Utils.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 
 /**
  * Created by SarahN on 6/24/2017.
@@ -31,6 +31,14 @@ public class RemainingRequirement {
         });
 
         return  required - consumed;
+    }
+
+    public static int remainGlassOfWater(){
+        return (required - consumed)/250;
+    }
+
+    public static int consumedGlassOfWater(){
+        return consumed / 250;
     }
 
 }

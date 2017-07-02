@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.classes.AnimationHelper;
-import com.example.sarahn.waterreminderapp.Utils.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.RemainingRequirement;
 import com.gelitenight.waveview.library.WaveView;
 
 public class TodayFragment extends Fragment {
@@ -42,9 +43,10 @@ public class TodayFragment extends Fragment {
         waveView.setWaveColor(Color.parseColor("#add8e6"), Color.parseColor("#8aacb8"));
         waveView.setShowWave(true);
 
-        tvInfo.setText("Requirement is " +
+        tvInfo.setText("Requirement  is  " +
                         ClsRequirementCalculator.mlToGlass()
-                        + "Glasses Consumed ");
+                        + "  Glasses,  Consumed  " + RemainingRequirement.consumedGlassOfWater()
+                + "  Glasses  " +" Remained " + RemainingRequirement.remainGlassOfWater() + " Glasses");
       //  waveView.setBorder(mBorderWidth, mBorderColor);
         mWaveHelper = new AnimationHelper(waveView);
 

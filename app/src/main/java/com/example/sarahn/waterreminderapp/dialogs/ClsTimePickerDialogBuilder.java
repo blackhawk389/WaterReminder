@@ -1,9 +1,6 @@
-package com.example.sarahn.waterreminderapp.classes;
+package com.example.sarahn.waterreminderapp.dialogs;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.borax12.materialdaterangepicker.time.RadialPickerLayout;
 import com.borax12.materialdaterangepicker.time.TimePickerDialog;
@@ -38,7 +35,7 @@ public class ClsTimePickerDialogBuilder{
                                                         ClsComfirmationDialog.displayDialog(context).show();
                                                           timeDifference = (fromMin - toMin) + ( fromHour - toHour);
                                                           timeDifferenceUtil(timeDifference, context);
-                                                      }}, now.get(Calendar.HOUR_OF_DAY),
+                                                      }}, now.get(Calendar.HOUR),
                 now.get(Calendar.MINUTE),
                 false);
 

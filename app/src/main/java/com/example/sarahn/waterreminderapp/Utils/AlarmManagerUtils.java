@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.sarahn.waterreminderapp.classes.ClsBroadCastReciver;
 import com.example.sarahn.waterreminderapp.classes.ClsEndBroadcastReciever;
-import com.example.sarahn.waterreminderapp.classes.ClsTimePickerDialogBuilder;
+import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.classes.MyApplication;
 
 import java.util.Calendar;

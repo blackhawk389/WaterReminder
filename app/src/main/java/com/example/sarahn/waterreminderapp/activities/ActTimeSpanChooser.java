@@ -7,8 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
-import com.example.sarahn.waterreminderapp.Utils.ClsRequirementCalculator;
-import com.example.sarahn.waterreminderapp.classes.ClsTimePickerDialogBuilder;
+import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 
 public class ActTimeSpanChooser extends Activity implements View.OnClickListener{
 
@@ -24,8 +24,8 @@ public class ActTimeSpanChooser extends Activity implements View.OnClickListener
         btnSpan.setOnClickListener(this);
 
         tvNotification = (TextView) findViewById(R.id.tv_not);
-        tvNotification.setText("Your  Water  Requirement  Is " + ClsRequirementCalculator.calculateRequirement(this)
-        + "  equvalent  to  " + ClsRequirementCalculator.mlToGlass() + "  glasses");
+        tvNotification.setText("Your  Water  Requirement  Is  " + ClsRequirementCalculator.calculateRequirement(this)
+        + "  Liters  equvalent  to  " + ClsRequirementCalculator.mlToGlass() + "  glasses");
     }
 
     @Override

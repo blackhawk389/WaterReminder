@@ -7,15 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.activities.ActTimeSpanChooser;
-import com.example.sarahn.waterreminderapp.classes.BackpressedDialog;
+import com.example.sarahn.waterreminderapp.dialogs.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
 import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetWeight;
 import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetActivity;
-import com.example.sarahn.waterreminderapp.Utils.ClsRequirementCalculator;
-
+import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 
 public class ActCalculate extends Activity implements View.OnClickListener{
 
@@ -76,7 +74,6 @@ public class ActCalculate extends Activity implements View.OnClickListener{
                 }else{
                     ToastLogger.toastMessage("please fill all feilds");
                 }
-
                 break;
         }
 
@@ -87,10 +84,10 @@ public class ActCalculate extends Activity implements View.OnClickListener{
         if(tvOne.getText().toString().matches("") ||
                 tvTwo.getText().toString().matches("") ||
                 tvThree.getText().toString().matches("")){
-            Logging.logMessage("all true");
-            isTrue = true;
-        }else{
+
             isTrue = false;
+        }else{
+            isTrue = true;
         }
         return isTrue;
     }

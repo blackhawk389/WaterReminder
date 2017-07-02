@@ -1,4 +1,4 @@
-package com.example.sarahn.waterreminderapp.classes;
+package com.example.sarahn.waterreminderapp.dialogs;
 
 import android.app.Activity;
 import android.content.Context;
