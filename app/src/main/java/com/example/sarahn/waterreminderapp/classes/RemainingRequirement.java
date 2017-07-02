@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.Utils.ClsRequirementCalculator;
 
 /**
  * Created by SarahN on 6/24/2017.

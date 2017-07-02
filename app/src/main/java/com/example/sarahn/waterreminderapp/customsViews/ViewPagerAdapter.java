@@ -28,7 +28,14 @@ public class ViewPagerAdapter extends PagerAdapter implements View.OnClickListen
         this.source = source;
         layoutInflater = layoutInflater.from(context);
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/gb.otf");
-        title = new String[]{"Get periodic reminder for drinking water", "Drink water and record", "Stay hydrated!"};
+        title = new String[]{"Get" +
+                " periodic" +
+                " reminder " +
+                "to " +
+                "drink water", "Drink" +
+                " water " +
+                "and " +
+                "record", "Stay  hydrated!"};
     }
 
     @Override
@@ -53,7 +60,6 @@ public class ViewPagerAdapter extends PagerAdapter implements View.OnClickListen
 
         textView.setText(title[position]);
         textView.setTypeface(typeface);
-
 
         container.addView(view);
 

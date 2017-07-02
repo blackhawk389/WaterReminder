@@ -10,7 +10,6 @@ import android.support.v4.app.NotificationCompat;
 
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.activities.MainScreen;
-import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 import com.example.sarahn.waterreminderapp.classes.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.classes.ConsumedService;
 

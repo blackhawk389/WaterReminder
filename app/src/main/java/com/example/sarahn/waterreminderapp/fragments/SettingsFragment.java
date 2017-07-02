@@ -1,19 +1,38 @@
 package com.example.sarahn.waterreminderapp.fragments;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
+import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
+import com.example.sarahn.waterreminderapp.classes.ClsAMOrPM;
+import com.example.sarahn.waterreminderapp.Utils.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.ClsTimePickerDialogBuilder;
+import com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty;
+import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetActivity;
+import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetWeight;
 
-public class SettingsFragment extends Fragment {
+public class SettingsFragment extends Fragment  implements OnClickListener {
 
     private OnFragmentInteractionListener mListener;
+
+    public static TextView tvOne;
+    public static TextView tvTwo;
+    public static TextView tvThree;
+    public static TextView tvSpan;
+    public static CustomBtnFonty btnUpdate;
+
 
 
     public SettingsFragment() {
@@ -29,8 +48,33 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
+
+        tvOne = (TextView) view.findViewById(R.id.tv_one);
+        tvTwo = (TextView) view.findViewById(R.id.tv_two);
+        tvThree = (TextView) view.findViewById(R.id.tv_three);
+        tvSpan = (TextView) view.findViewById(R.id.tv_span);
+        btnUpdate = (CustomBtnFonty) view.findViewById(R.id.recalculate);
+
+        tvOne.setText(Integer.toString(SharedPrefUtils.getWeight(getContext())));
+        tvTwo.setText(SharedPrefUtils.getActivityLevel(getContext()));
+        tvThree.setText(SharedPrefUtils.getClimate(getContext()));
+        btnUpdate.setBackgroundColor(Color.parseColor("#ff0000"));
+
+        tvSpan.setText(ClsTimePickerDialogBuilder.fromHour+":"
+        + ClsTimePickerDialogBuilder.fromMin+ ClsAMOrPM.isAMOrPM(ClsTimePickerDialogBuilder.fromHour)+ "-" + ClsTimePickerDialogBuilder.toHour
+        +":" + ClsTimePickerDialogBuilder.toMin + ClsAMOrPM.isAMOrPM(ClsTimePickerDialogBuilder.toHour));
+
+
+        tvOne.setOnClickListener(this);
+        tvTwo.setOnClickListener(this);
+        tvThree.setOnClickListener(this);
+        tvSpan.setOnClickListener(this);
+        btnUpdate.setOnClickListener(this);
+
+        return view;
     }
 
 
@@ -55,6 +99,38 @@ public class SettingsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.tv_one:
+                ClsBottomSheetWeight bottomSheet = new ClsBottomSheetWeight(getContext());
+                bottomSheet.showDialog().show();
+                //make the bellow line of code only works when it return from bottomsheet
+                // tvOne.setText(Integer.toString(SharedPrefUtils.getWeight(this)));
+                break;
+
+            case R.id.tv_two:
+                ClsBottomSheetActivity activityBottomSheet = new ClsBottomSheetActivity(getContext());
+                activityBottomSheet.showDialog().show();
+                break;
+
+            case R.id.tv_three:
+                ClimateBottomSheet bottomSheetClimate = new ClimateBottomSheet(getContext());
+                bottomSheetClimate.showDialog().show();
+                break;
+
+            case R.id.tv_span:
+                ClsTimePickerDialogBuilder.showDialog(getContext()).show(getActivity().getFragmentManager(), "timepicker");
+                break;
+            case R.id.recalculate:
+                ClsRequirementCalculator.calculateRequirement(getContext());
+                ToastLogger.toastMessage("Updated");
+                break;
+        }
+
     }
 
 

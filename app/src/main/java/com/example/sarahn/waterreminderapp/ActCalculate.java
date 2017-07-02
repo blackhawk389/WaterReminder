@@ -7,13 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
-import com.example.sarahn.waterreminderapp.activities.ActNotification;
+import com.example.sarahn.waterreminderapp.activities.ActTimeSpanChooser;
 import com.example.sarahn.waterreminderapp.classes.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
 import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetWeight;
 import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetActivity;
-import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.Utils.ClsRequirementCalculator;
 
 
 public class ActCalculate extends Activity implements View.OnClickListener{
@@ -69,7 +68,7 @@ public class ActCalculate extends Activity implements View.OnClickListener{
 
             case R.id.btn_calculate:
                 ClsRequirementCalculator.calculateRequirement(ActCalculate.this);
-                Intent intent = new Intent(ActCalculate.this, ActNotification.class);
+                Intent intent = new Intent(ActCalculate.this, ActTimeSpanChooser.class);
                 startActivity(intent);
                 break;
         }

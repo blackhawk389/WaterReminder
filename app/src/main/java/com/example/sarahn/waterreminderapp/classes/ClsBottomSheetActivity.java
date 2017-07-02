@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.ActCalculate;
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 
@@ -50,6 +51,7 @@ public class ClsBottomSheetActivity {
                 int activityLevel = numberPickerActivity.getValue()-1;
                 SharedPrefUtils.setActivityLevel(context, values[activityLevel]);
                 ToastLogger.toastMessage(values[activityLevel]);
+                Logging.logMessage("activity" + SharedPrefUtils.getActivityLevel(context));
                 setText(SharedPrefUtils.getActivityLevel(context));
             }
         });

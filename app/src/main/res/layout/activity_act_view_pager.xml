@@ -24,17 +24,17 @@
         />
     </RelativeLayout>
 
-    <Button
+    <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_skip"
-        android:text="Skip"
+        android:text="Skip Intro"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="80dp"
         android:layout_alignParentBottom="true"
         />
 
-    <Button
+    <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_next"
@@ -45,7 +45,7 @@
         android:layout_alignParentBottom="true"
         />
 
-    <Button
+    <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_got"

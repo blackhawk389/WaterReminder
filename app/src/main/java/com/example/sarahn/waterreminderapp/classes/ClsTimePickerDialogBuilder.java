@@ -1,6 +1,7 @@
 package com.example.sarahn.waterreminderapp.classes;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -25,7 +26,8 @@ public class ClsTimePickerDialogBuilder{
         Calendar now = Calendar.getInstance();
 
         TimePickerDialog tpd;
-        return tpd = TimePickerDialog.newInstance(new TimePickerDialog.OnTimeSetListener() {
+
+        tpd = TimePickerDialog.newInstance(new TimePickerDialog.OnTimeSetListener() {
                                                       @Override
                                                       public void onTimeSet(RadialPickerLayout radialPickerLayout, int i, int i1, int i2, int i3) {
                                                           fromHour = i;
@@ -39,6 +41,9 @@ public class ClsTimePickerDialogBuilder{
                                                       }}, now.get(Calendar.HOUR_OF_DAY),
                 now.get(Calendar.MINUTE),
                 false);
+
+
+        return tpd;
     }
 
 
