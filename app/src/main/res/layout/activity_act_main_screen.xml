@@ -21,7 +21,6 @@
             android:textColor="#000"
             android:id="@+id/toolbar_title" />
 
-
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -29,6 +28,7 @@
             android:layout_marginRight="13dp"
             android:src="@drawable/share"
             android:id="@+id/iv"
+            android:background="@drawable/image_state"
             android:clickable="true"
             />
     </android.support.v7.widget.Toolbar>

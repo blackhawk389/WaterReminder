@@ -12,7 +12,8 @@ public class ClsBroadCastReciver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Toast.makeText(context, "fired start" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Time begins" , Toast.LENGTH_SHORT).show();
+//        if()
         ClsSceduler.Scheduler(context);
     }
 }

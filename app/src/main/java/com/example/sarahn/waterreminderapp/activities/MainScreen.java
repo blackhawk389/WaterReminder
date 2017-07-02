@@ -32,7 +32,7 @@ public class MainScreen extends AppCompatActivity
 
 {
 
-    private ShareActionProvider mShareActionProvider;
+    private ShareActionProvider shareActionProvider;
     TabLayout tabs;
     FragmentTransaction ft;
     ImageView ivShare;
@@ -131,5 +131,36 @@ public class MainScreen extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        moveTaskToBack(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 }

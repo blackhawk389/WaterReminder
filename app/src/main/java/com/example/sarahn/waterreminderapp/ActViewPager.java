@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.customsViews.ViewPagerAdapter;
 
@@ -64,11 +65,13 @@ public class ActViewPager extends Activity implements View.OnClickListener, View
             case R.id.btn_skip:
                     SharedPrefUtils.setIsTrue(false, this);
                     Intent intent = new Intent(this, ActCalculate.class);
+                   // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     break;
             case R.id.btn_got:
                 SharedPrefUtils.setIsTrue(false, this);
                 Intent gotIntent = new Intent(this, ActCalculate.class);
+            //    gotIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(gotIntent);
                 break;
 

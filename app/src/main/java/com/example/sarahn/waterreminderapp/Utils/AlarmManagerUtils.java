@@ -29,8 +29,7 @@ public class AlarmManagerUtils {
         time.set(Calendar.MINUTE, ClsTimePickerDialogBuilder.fromMin);
         time.set(Calendar.SECOND, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent(MyApplication.getContext()));
-        Log.i("MainActivity " , " start" + ClsTimePickerDialogBuilder.fromHour + " : "
-                + ClsTimePickerDialogBuilder.fromMin );
+
     }
 
     private static PendingIntent pendingIntent(Context context){

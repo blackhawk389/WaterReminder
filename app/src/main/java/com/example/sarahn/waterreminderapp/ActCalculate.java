@@ -3,10 +3,12 @@ package com.example.sarahn.waterreminderapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.activities.ActTimeSpanChooser;
 import com.example.sarahn.waterreminderapp.dialogs.BackpressedDialog;
@@ -21,6 +23,14 @@ public class ActCalculate extends Activity implements View.OnClickListener{
     public static TextView tvTwo;
     public static TextView tvThree;
     Button btnClaculate;
+
+    String textViewOne;
+    String textViewTwo;
+    String textViewThree;
+
+    final static String KEY_WEIGHT = "weight";
+    final static String KEY_AL = "al";
+    final static String KEY_CLIMATE = "climate";
 
 
     @Override
@@ -90,5 +100,78 @@ public class ActCalculate extends Activity implements View.OnClickListener{
             isTrue = true;
         }
         return isTrue;
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        tvOne.setText(textViewOne);
+//        tvTwo.setText(textViewTwo);
+//        tvThree.setText(textViewThree);
+
+//        tvOne.setText(tvOne.getText());
+//        tvTwo.setText(tvTwo.getText());
+//        tvThree.setText(tvThree.getText());
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+
+//        tvOne.setText(tvOne.getText());
+//        tvTwo.setText(tvTwo.getText());
+//        tvThree.setText(tvThree.getText());
+
+        textViewOne = (String) tvOne.getText();
+        textViewTwo = (String) tvTwo.getText();
+        textViewThree = (String) tvThree.getText();
+
+        outState.putString(KEY_WEIGHT, textViewOne);
+        outState.putString(KEY_AL, textViewTwo);
+        outState.putString(KEY_CLIMATE, textViewThree);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+//        savedInstanceState.getString(KEY_WEIGHT);
+//        savedInstanceState.getString(KEY_AL);
+//        savedInstanceState.getString(KEY_CLIMATE);
+
+        tvOne.setText(savedInstanceState.getString(KEY_WEIGHT));
+        tvTwo.setText(savedInstanceState.getString(KEY_AL));
+        tvThree.setText(savedInstanceState.getString(KEY_CLIMATE));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

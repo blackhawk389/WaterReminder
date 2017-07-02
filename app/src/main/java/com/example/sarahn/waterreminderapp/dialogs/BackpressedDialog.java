@@ -14,7 +14,7 @@ public class BackpressedDialog {
         SweetAlertDialog dialog = new SweetAlertDialog (context, SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Exit Application?")
                 .setContentText("Process is incomplete")
-                .setCancelText("Exit")
+                //.setCancelText("Exit")
                 .setConfirmText("Go back")
                 .showCancelButton(true)
 
@@ -24,15 +24,15 @@ public class BackpressedDialog {
                         sweetAlertDialog.cancel();
 
                     }
-                })
-                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        sweetAlertDialog.cancel();
-                        ((Activity)context).moveTaskToBack(true);
-
-                    }
                 });
+//                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                    @Override
+//                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                        sweetAlertDialog.cancel();
+//                        ((Activity)context).moveTaskToBack(true);
+//
+//                    }
+//                });
 
 
 

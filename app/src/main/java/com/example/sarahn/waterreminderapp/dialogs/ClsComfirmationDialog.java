@@ -54,7 +54,7 @@ public class ClsComfirmationDialog {
                                         context.startActivity(intent);
                                     }
                                 })
-                                .setContentText("You can always change settings anytime from setting tab! duration will be " + NotificationUtills.NotificationCounter() + "min")
+                                .setContentText("You can always change settings anytime from setting tab! you will get notification every " + NotificationUtills.NotificationCounter() + " minutes")
                                 .show();
 
                     }

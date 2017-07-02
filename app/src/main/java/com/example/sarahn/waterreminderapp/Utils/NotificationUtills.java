@@ -26,9 +26,9 @@ public class NotificationUtills {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent(context)).setContentTitle("Notification")
-                .setContentText("Im notification").setSmallIcon(R.mipmap.ic_launcher)
+                .setContentText("Im notification").setSmallIcon(R.drawable.notification)
                 .setDefaults(NotificationCompat.DEFAULT_VIBRATE)
-                .setLights(0xFF0000FF, 4000, 1000)
+                .setLights(0xFF0000FF, 2000, 1000)
 
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM))
                 .addAction(incrementWaterCount(context))
@@ -53,7 +53,7 @@ public class NotificationUtills {
 
         PendingIntent pendingIntent = PendingIntent.getService(context, 001, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        NotificationCompat.Action drinkWater = new NotificationCompat.Action(R.mipmap.ic_launcher, "I did it!",pendingIntent);
+        NotificationCompat.Action drinkWater = new NotificationCompat.Action(R.drawable.done, "I did it!",pendingIntent);
         return drinkWater;
     }
 
@@ -64,7 +64,7 @@ public class NotificationUtills {
 
         PendingIntent pendingIntent = PendingIntent.getService(context, 001, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        NotificationCompat.Action drinkWater = new NotificationCompat.Action(R.mipmap.ic_launcher, "Cancel",pendingIntent);
+        NotificationCompat.Action drinkWater = new NotificationCompat.Action(R.drawable.clear, "Cancel",pendingIntent);
         return drinkWater;
     }
 

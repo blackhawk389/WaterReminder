@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.dialogs.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 
 public class ActTimeSpanChooser extends Activity implements View.OnClickListener{
@@ -31,5 +32,11 @@ public class ActTimeSpanChooser extends Activity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         ClsTimePickerDialogBuilder.showDialog(this).show(getFragmentManager(), "timepicker");
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+       // BackpressedDialog.showDialog(this).show();
     }
 }

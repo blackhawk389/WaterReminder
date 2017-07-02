@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.classes.AnimationHelper;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 import com.example.sarahn.waterreminderapp.classes.RemainingRequirement;
@@ -20,6 +21,9 @@ public class TodayFragment extends Fragment {
 
     private AnimationHelper mWaveHelper;
     private TextView tvInfo;
+    private int calculated;
+    private int consumed;
+    private int remained;
 
     private OnFragmentInteractionListener mListener;
 
@@ -43,10 +47,14 @@ public class TodayFragment extends Fragment {
         waveView.setWaveColor(Color.parseColor("#add8e6"), Color.parseColor("#8aacb8"));
         waveView.setShowWave(true);
 
+        calculated = ClsRequirementCalculator.mlToGlass();
+        consumed = RemainingRequirement.consumedGlassOfWater();
+        remained = RemainingRequirement.remainGlassOfWater();
+
         tvInfo.setText("Requirement  is  " +
                         ClsRequirementCalculator.mlToGlass()
                         + "  Glasses,  Consumed  " + RemainingRequirement.consumedGlassOfWater()
-                + "  Glasses  " +" Remained " + RemainingRequirement.remainGlassOfWater() + " Glasses");
+                + "  Glasses  " +" Remained  " + RemainingRequirement.remainGlassOfWater() + "  Glasses");
       //  waveView.setBorder(mBorderWidth, mBorderColor);
         mWaveHelper = new AnimationHelper(waveView);
 
@@ -59,6 +67,7 @@ public class TodayFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,4 +99,36 @@ public class TodayFragment extends Fragment {
         public void onFragmentInteraction(Uri uri);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Logging.logMessage("pause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Logging.logMessage("stop");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        calculated = ClsRequirementCalculator.mlToGlass();
+        consumed = RemainingRequirement.consumedGlassOfWater();
+        remained = RemainingRequirement.remainGlassOfWater();
+
+    }
 }

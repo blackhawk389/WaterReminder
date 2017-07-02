@@ -21,6 +21,7 @@ public class SharedPrefUtils {
 
 
 
+
 //    public SharedPrefUtils(Context context) {
 //        this.context = context;
 //        sharedPreferences = this.context.getSharedPreferences(SHARED_PREFERENCE_NAME, 0);
@@ -92,7 +93,7 @@ public class SharedPrefUtils {
 
     synchronized public static void setConsumed(Context context, int consume){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().remove(KEY_CONSUMED);
+    //    prefs.edit().remove(KEY_CONSUMED);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_CONSUMED, consume);
         editor.apply();
@@ -102,6 +103,19 @@ public class SharedPrefUtils {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getInt(KEY_CONSUMED, DEFAULT_VALUE);
     }
+
+//    synchronized public static void setRequired(Context context, int climate){
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+//        prefs.edit().remove(KEY_CLIMATE);
+//        SharedPreferences.Editor editor = prefs.edit();
+//        editor.putString(, climate);
+//        editor.apply();
+//
+//    }
+//
+//    public static int getRequired(){
+//
+//    }
 
 //    public static int[] getUserData(Context context){
 //        // how to make lines of code follow synchronization, step by step execution

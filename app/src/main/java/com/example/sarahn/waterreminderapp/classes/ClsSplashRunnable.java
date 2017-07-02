@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.sarahn.waterreminderapp.ActCalculate;
 import com.example.sarahn.waterreminderapp.ActViewPager;
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.Logging;
@@ -36,11 +37,10 @@ public class ClsSplashRunnable implements Runnable {
     private void isFirstLaunch(){
         intent = new Intent();
         if(sharedPrefUtils.getIsTrue(context) == true){
-            Logging.logMessage("first true");
             intent.setClass(context, ActViewPager.class);
-        }else {
+
+        }else{
             intent.setClass(context, MainScreen.class);
-            Logging.logMessage("first false");
         }
     }
 }

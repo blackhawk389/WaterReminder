@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:id="@+id/tv_info"
+            android:saveEnabled="true"
             android:textColor="#000"/>
 
     </me.grantland.widget.AutofitLayout>
