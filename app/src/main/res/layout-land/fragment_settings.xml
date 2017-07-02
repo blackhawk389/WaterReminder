@@ -1,0 +1,173 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.sarahn.waterreminderapp.fragments.SettingsFragment">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
+
+    <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/droplet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/tv_extends"
+        android:id="@+id/weight_layout"
+        >
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Weight"
+            android:layout_gravity="center"/>
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:onClick="showDialogTVOne"
+            android:id="@+id/tv_one"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:background="@drawable/textview_border"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="5dp"
+        android:id="@+id/al_layout"
+        android:layout_below="@+id/weight_layout"
+        >
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Activity Level"
+            android:layout_gravity="center"/>
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:id="@+id/tv_two"
+            android:layout_weight="1.6"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:onClick="showDialogTVTwo"
+            android:background="@drawable/textview_border"
+            />
+        />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="5dp"
+        android:id="@+id/climate_layout"
+        android:layout_below="@+id/al_layout"
+        >
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Climate"
+            android:layout_gravity="center"/>
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:layout_weight="1.1"
+            android:id="@+id/tv_three"
+            android:gravity="center"
+            android:onClick="showDialogTVThree"
+            android:background="@drawable/textview_border"
+            />
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="5dp"
+        android:id="@+id/span_layout"
+        android:layout_below="@+id/climate_layout"
+        >
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Notification Time Span"
+            android:layout_gravity="center"/>
+
+        <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:layout_weight="1.1"
+            android:id="@+id/tv_span"
+            android:gravity="center"
+            android:onClick="showDialogTVThree"
+            android:background="@drawable/textview_border"
+            />
+        />
+    </LinearLayout>
+
+    <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/recalculate"
+        android:layout_below="@+id/span_layout"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:text="Update"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="30dp"/>
+
+</RelativeLayout>
+</ScrollView>

@@ -39,4 +39,14 @@ public class ActTimeSpanChooser extends Activity implements View.OnClickListener
         super.onBackPressed();
        // BackpressedDialog.showDialog(this).show();
     }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
 }
