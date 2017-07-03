@@ -11,6 +11,7 @@ import android.support.v4.app.NotificationCompat;
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.activities.MainScreen;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.MyApplication;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.classes.ConsumedService;
 
@@ -79,7 +80,7 @@ public class NotificationUtills {
 
     public static int NotificationCounter(){
         int diff = ClsTimePickerDialogBuilder.timeDifference;
-        int waterGlass = ClsRequirementCalculator.mlToGlass();
+        int waterGlass = SharedPrefUtils.getRequired(MyApplication.getContext())/250;
 
         return  (Math.abs(diff)) * 60 / waterGlass;
     }

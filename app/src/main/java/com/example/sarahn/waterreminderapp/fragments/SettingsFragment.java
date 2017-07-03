@@ -18,6 +18,7 @@ import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
 import com.example.sarahn.waterreminderapp.classes.ClsAMOrPM;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.MyApplication;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty;
 import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetActivity;
@@ -63,9 +64,9 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
         tvThree.setText(SharedPrefUtils.getClimate(getContext()));
         btnUpdate.setBackgroundColor(Color.parseColor("#ff0000"));
 
-        tvSpan.setText(ClsTimePickerDialogBuilder.fromHour+":"
-        + ClsTimePickerDialogBuilder.fromMin+ ClsAMOrPM.isAMOrPM(ClsTimePickerDialogBuilder.fromHour)+ "-" + ClsTimePickerDialogBuilder.toHour
-        +":" + ClsTimePickerDialogBuilder.toMin + ClsAMOrPM.isAMOrPM(ClsTimePickerDialogBuilder.toHour));
+        tvSpan.setText(SharedPrefUtils.getStartHour(getContext())+":"
+        + SharedPrefUtils.getStartMin(getContext())+ "-" + SharedPrefUtils.getEndHour(getContext())
+        +":" + SharedPrefUtils.getEndMin(getContext()));
 
 
         tvOne.setOnClickListener(this);

@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.borax12.materialdaterangepicker.time.RadialPickerLayout;
 import com.borax12.materialdaterangepicker.time.TimePickerDialog;
+import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.classes.MyApplication;
 
 import java.util.Calendar;
 
@@ -31,6 +33,11 @@ public class ClsTimePickerDialogBuilder{
                                                           fromMin = i1;
                                                           toHour = i2;
                                                           toMin = i3;
+
+                                                          SharedPrefUtils.setStartHour(MyApplication.getContext(), i);
+                                                          SharedPrefUtils.setEndHour(MyApplication.getContext(), i2);
+                                                          SharedPrefUtils.setStartMin(MyApplication.getContext(), i1);
+                                                          SharedPrefUtils.setEndMin(MyApplication.getContext(), i3);
 
                                                         ClsComfirmationDialog.displayDialog(context).show();
                                                           timeDifference = (fromMin - toMin) + ( fromHour - toHour);

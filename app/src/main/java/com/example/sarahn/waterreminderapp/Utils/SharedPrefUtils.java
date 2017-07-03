@@ -21,6 +21,12 @@ public class SharedPrefUtils {
     private final static String KEY_REMAINED = "remained";
     private final static String KEY_REQUIRED = "required";
 
+    private final static String KEY_START_HOUR = "start_hour";
+    private final static String KEY_END_HOUR = "end_hour";
+    private final static String KEY_START_MIN = "start_min";
+    private final static String KEY_END_MIN = "end_min";
+
+
 //    public SharedPrefUtils(Context context) {
 //        this.context = context;
 //        sharedPreferences = this.context.getSharedPreferences(SHARED_PREFERENCE_NAME, 0);
@@ -117,15 +123,75 @@ public class SharedPrefUtils {
 
     synchronized public static void setRequired(Context context, int consume){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().remove(KEY_REQUIRED);
+        prefs.edit().remove(KEY_REQUIRED);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_REQUIRED, consume);
         editor.apply();
     }
 
+    public static void removeConsumed(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_CONSUMED);
+        prefs.edit().remove(KEY_REMAINED);
+    }
+
     public static int getRequired(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getInt(KEY_REQUIRED, DEFAULT_VALUE);
+    }
+
+    synchronized public static void setStartHour(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_START_HOUR);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_START_HOUR, consume);
+        editor.apply();
+        Logging.logMessage("start" + getStartHour(context));
+    }
+
+    public static int getStartHour(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_START_HOUR, DEFAULT_VALUE);
+    }
+    synchronized public static void setEndHour(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_END_HOUR);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_END_HOUR, consume);
+        editor.apply();
+        Logging.logMessage("end hour " + getEndHour(context));
+
+    }
+
+    public static int getEndHour(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_END_HOUR, DEFAULT_VALUE);
+    }
+    synchronized public static void setStartMin(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_START_MIN);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_START_MIN, consume);
+        editor.apply();
+        Logging.logMessage("start min " + getStartMin(context));
+    }
+
+    public static int getStartMin(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_START_MIN, DEFAULT_VALUE);
+    }
+    synchronized public static void setEndMin(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_END_MIN);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_END_MIN, consume);
+        editor.apply();
+        Logging.logMessage("end mint " + getEndMin(context));
+    }
+
+    public static int getEndMin(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_END_MIN, DEFAULT_VALUE);
     }
 
 

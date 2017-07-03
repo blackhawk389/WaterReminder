@@ -20,6 +20,7 @@ public class ClsRequirementCalculator {
     private static String activity;
     private static String climate;
     public static int calculated;
+    public static double mlToLit;
 
     public static void calculateRequirement(Context context){
 
@@ -43,7 +44,7 @@ public class ClsRequirementCalculator {
 
         calculated = waterInmili(weight, climateCal, activityCal);
         SharedPrefUtils.setRequired(MyApplication.getContext(), calculated);
-        //return mlToLiter(weight, climateCal, activityCal);
+        mlToLit = mlToLiter(weight, climateCal, activityCal);
 
     }
 
@@ -97,7 +98,7 @@ public class ClsRequirementCalculator {
     }
 
 
-    private final static double mlToLiter(float weight, int activityCal, int climateCal){
+    public final static double mlToLiter(float weight, int activityCal, int climateCal){
 
         float d = (weight + activityCal + climateCal)/1000;
         DecimalFormat newFormat = new DecimalFormat("#.##");

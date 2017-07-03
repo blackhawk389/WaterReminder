@@ -15,7 +15,7 @@ public class RemainingRequirement {
 
     //required - consumed
     private static int consumed;
-    private static int required;
+    private static float required;
 
     public static void difference(final Context context){
 
@@ -40,16 +40,16 @@ public class RemainingRequirement {
             }
         });
 
-        SharedPrefUtils.setRemained(MyApplication.getContext(), required-consumed);
+        SharedPrefUtils.setRemained(MyApplication.getContext(), Math.round(required)-consumed);
         //return  required - consumed;
     }
 
-    public static int remainGlassOfWater(){
-        return (required - consumed)/250;
-    }
+//   // public static int remainGlassOfWater(){
+//        return (required - consumed)/250;
+//    }
 
-    public static int consumedGlassOfWater(){
-        return consumed / 250;
-    }
+//    public static int consumedGlassOfWater(){
+//        return consumed / 250;
+//    }
 
 }

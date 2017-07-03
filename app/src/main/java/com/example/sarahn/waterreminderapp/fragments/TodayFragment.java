@@ -122,9 +122,9 @@ public class TodayFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        calculated = ClsRequirementCalculator.mlToGlass();
-        consumed = RemainingRequirement.consumedGlassOfWater();
-        remained = RemainingRequirement.remainGlassOfWater();
+//        calculated = ClsRequirementCalculator.mlToGlass();
+//        consumed = RemainingRequirement.consumedGlassOfWater();
+//        remained = RemainingRequirement.remainGlassOfWater();
 
     }
 }

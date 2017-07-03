@@ -27,7 +27,7 @@ public class ActTimeSpanChooser extends Activity implements View.OnClickListener
         btnSpan.setOnClickListener(this);
 
         tvNotification = (TextView) findViewById(R.id.tv_not);
-        tvNotification.setText("Your  Water  Requirement  Is  " + SharedPrefUtils.getRequired(MyApplication.getContext())/1000
+        tvNotification.setText("Your  Water  Requirement  Is  " + ClsRequirementCalculator.mlToLit
         + "  Liters  equvalent  to  " + SharedPrefUtils.getRequired(MyApplication.getContext())/250 + "  glasses");
     }
 

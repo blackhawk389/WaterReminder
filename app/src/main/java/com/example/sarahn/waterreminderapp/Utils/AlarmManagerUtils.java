@@ -25,8 +25,8 @@ public class AlarmManagerUtils {
         AlarmManager alarmManager = (AlarmManager) MyApplication.getContext().getSystemService(Context.ALARM_SERVICE);
         Calendar time = Calendar.getInstance();
         time.setTimeInMillis(System.currentTimeMillis());
-        time.set(Calendar.HOUR_OF_DAY, ClsTimePickerDialogBuilder.fromHour);
-        time.set(Calendar.MINUTE, ClsTimePickerDialogBuilder.fromMin);
+        time.set(Calendar.HOUR_OF_DAY, SharedPrefUtils.getStartHour(MyApplication.getContext()));
+        time.set(Calendar.MINUTE, SharedPrefUtils.getStartMin(MyApplication.getContext()));
         time.set(Calendar.SECOND, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent(MyApplication.getContext()));
 
@@ -46,8 +46,8 @@ public class AlarmManagerUtils {
         AlarmManager alarmManager = (AlarmManager)  MyApplication.getContext().getSystemService(Context.ALARM_SERVICE);
         Calendar time = Calendar.getInstance();
         time.setTimeInMillis(System.currentTimeMillis());
-        time.set(Calendar.HOUR_OF_DAY, ClsTimePickerDialogBuilder.toHour);
-        time.set(Calendar.MINUTE, ClsTimePickerDialogBuilder.toMin);
+        time.set(Calendar.HOUR_OF_DAY, SharedPrefUtils.getEndHour(MyApplication.getContext()));
+        time.set(Calendar.MINUTE, SharedPrefUtils.getEndMin(MyApplication.getContext()));
         time.set(Calendar.SECOND, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), endPendingIntent(MyApplication.getContext()));
 
