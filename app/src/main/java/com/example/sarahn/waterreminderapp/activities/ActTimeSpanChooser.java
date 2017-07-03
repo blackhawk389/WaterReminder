@@ -7,7 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.MyApplication;
 import com.example.sarahn.waterreminderapp.dialogs.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 
@@ -25,8 +27,8 @@ public class ActTimeSpanChooser extends Activity implements View.OnClickListener
         btnSpan.setOnClickListener(this);
 
         tvNotification = (TextView) findViewById(R.id.tv_not);
-        tvNotification.setText("Your  Water  Requirement  Is  " + ClsRequirementCalculator.calculateRequirement(this)
-        + "  Liters  equvalent  to  " + ClsRequirementCalculator.mlToGlass() + "  glasses");
+        tvNotification.setText("Your  Water  Requirement  Is  " + SharedPrefUtils.getRequired(MyApplication.getContext())/1000
+        + "  Liters  equvalent  to  " + SharedPrefUtils.getRequired(MyApplication.getContext())/250 + "  glasses");
     }
 
     @Override

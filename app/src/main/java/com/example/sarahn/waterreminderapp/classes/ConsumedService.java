@@ -21,7 +21,7 @@ public class ConsumedService extends IntentService {
         if(intent.getAction().equals(NotificationUtills.ACTION_CANCEL)){
             NotificationUtills.cancelAll(this);
         }else if(intent.getAction().equals(NotificationUtills.ACTION_INCREMENT_WATER)){
-            int diff = RemainingRequirement.difference(this);
+            RemainingRequirement.difference(this);
             NotificationUtills.cancelAll(this);
         }
 

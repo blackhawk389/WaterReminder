@@ -14,30 +14,34 @@ import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 public class RemainingRequirement {
 
     //required - consumed
-    public static int consumed;
-    public static int required;
+    private static int consumed;
+    private static int required;
 
-    public static int difference(final Context context){
+    public static void difference(final Context context){
 
         int waterConsumed = 0;
-        waterConsumed = waterConsumed + 250;
+       // waterConsumed = waterConsumed + 250;
 
-        SharedPrefUtils.setConsumed(MyApplication.getContext(), waterConsumed);
+
         consumed = SharedPrefUtils.getConsumed(MyApplication.getContext());
+        consumed = consumed + 250;
+        SharedPrefUtils.setConsumed(MyApplication.getContext(), consumed);
 
-        required = ClsRequirementCalculator.calculated;
+
+        required = SharedPrefUtils.getRequired(MyApplication.getContext());
 
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             public void run() {
-                Toast.makeText(context, "Total requirement " + ClsRequirementCalculator.calculated
+                Toast.makeText(context, "Total requirement " + (SharedPrefUtils.getRequired(MyApplication.getContext()))/250
                         +
-                        " consumed " + consumed +
-                        " remained glasses " + (required - consumed)/250 , Toast.LENGTH_SHORT).show();
+                        " consumed " + (SharedPrefUtils.getConsumed(MyApplication.getContext()))/250 +
+                        " remained glasses " + (SharedPrefUtils.getRemained(MyApplication.getContext()))/250 , Toast.LENGTH_SHORT).show();
             }
         });
 
-        return  required - consumed;
+        SharedPrefUtils.setRemained(MyApplication.getContext(), required-consumed);
+        //return  required - consumed;
     }
 
     public static int remainGlassOfWater(){

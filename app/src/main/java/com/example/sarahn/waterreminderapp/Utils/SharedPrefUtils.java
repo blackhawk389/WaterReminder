@@ -18,9 +18,8 @@ public class SharedPrefUtils {
     private final static int DEFAULT_VALUE = 0;
     private final static String DEFUALT_STRING_VALUE = null;
     private final static String KEY_CONSUMED = "consumed";
-
-
-
+    private final static String KEY_REMAINED = "remained";
+    private final static String KEY_REQUIRED = "required";
 
 //    public SharedPrefUtils(Context context) {
 //        this.context = context;
@@ -34,7 +33,6 @@ public class SharedPrefUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(KEY_IS_TRUE, istrue);
         editor.apply();
-
     }
 
     public static Boolean getIsTrue(Context context){
@@ -93,7 +91,7 @@ public class SharedPrefUtils {
 
     synchronized public static void setConsumed(Context context, int consume){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-    //    prefs.edit().remove(KEY_CONSUMED);
+        prefs.edit().remove(KEY_CONSUMED);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_CONSUMED, consume);
         editor.apply();
@@ -103,6 +101,36 @@ public class SharedPrefUtils {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getInt(KEY_CONSUMED, DEFAULT_VALUE);
     }
+
+    synchronized public static void setRemained(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().remove(KEY_REMAINED);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_REMAINED, consume);
+        editor.apply();
+    }
+
+    public static int getRemained(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_REMAINED, DEFAULT_VALUE);
+    }
+
+    synchronized public static void setRequired(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().remove(KEY_REQUIRED);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_REQUIRED, consume);
+        editor.apply();
+    }
+
+    public static int getRequired(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_REQUIRED, DEFAULT_VALUE);
+    }
+
+
+
+
 
 //    synchronized public static void setRequired(Context context, int climate){
 //        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

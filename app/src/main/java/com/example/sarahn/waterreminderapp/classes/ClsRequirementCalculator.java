@@ -21,7 +21,7 @@ public class ClsRequirementCalculator {
     private static String climate;
     public static int calculated;
 
-    public static double calculateRequirement(Context context){
+    public static void calculateRequirement(Context context){
 
         int climateCal = 0;
         int activityCal = 0;
@@ -42,7 +42,8 @@ public class ClsRequirementCalculator {
 
 
         calculated = waterInmili(weight, climateCal, activityCal);
-        return mlToLiter(weight, climateCal, activityCal);
+        SharedPrefUtils.setRequired(MyApplication.getContext(), calculated);
+        //return mlToLiter(weight, climateCal, activityCal);
 
     }
 

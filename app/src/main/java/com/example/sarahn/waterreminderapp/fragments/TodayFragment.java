@@ -12,8 +12,10 @@ import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.Logging;
+import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.classes.AnimationHelper;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.MyApplication;
 import com.example.sarahn.waterreminderapp.classes.RemainingRequirement;
 import com.gelitenight.waveview.library.WaveView;
 
@@ -47,14 +49,10 @@ public class TodayFragment extends Fragment {
         waveView.setWaveColor(Color.parseColor("#add8e6"), Color.parseColor("#8aacb8"));
         waveView.setShowWave(true);
 
-        calculated = ClsRequirementCalculator.mlToGlass();
-        consumed = RemainingRequirement.consumedGlassOfWater();
-        remained = RemainingRequirement.remainGlassOfWater();
-
         tvInfo.setText("Requirement  is  " +
-                        ClsRequirementCalculator.mlToGlass()
-                        + "  Glasses,  Consumed  " + RemainingRequirement.consumedGlassOfWater()
-                + "  Glasses  " +" Remained  " + RemainingRequirement.remainGlassOfWater() + "  Glasses");
+                        SharedPrefUtils.getRequired(MyApplication.getContext())/250
+                        + "  Glasses,  Consumed  " + SharedPrefUtils.getConsumed(MyApplication.getContext())/250
+                + "  Glasses  " +" Remained  " + SharedPrefUtils.getRemained(MyApplication.getContext())/250 + "  Glasses");
       //  waveView.setBorder(mBorderWidth, mBorderColor);
         mWaveHelper = new AnimationHelper(waveView);
 
@@ -108,13 +106,11 @@ public class TodayFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        Logging.logMessage("pause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Logging.logMessage("stop");
     }
 
     @Override
