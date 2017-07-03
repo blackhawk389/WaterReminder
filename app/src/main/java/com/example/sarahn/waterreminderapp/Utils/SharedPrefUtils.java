@@ -26,6 +26,8 @@ public class SharedPrefUtils {
     private final static String KEY_START_MIN = "start_min";
     private final static String KEY_END_MIN = "end_min";
 
+    private final static String KEY_DURATION = "duration";
+
 
 //    public SharedPrefUtils(Context context) {
 //        this.context = context;
@@ -129,11 +131,31 @@ public class SharedPrefUtils {
         editor.apply();
     }
 
+
+
+    synchronized public static void setDuration(Context context, int consume){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_DURATION);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_DURATION, consume);
+        editor.apply();
+    }
+
+    public static int getDuration(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(KEY_DURATION, DEFAULT_VALUE);
+    }
+
     public static void removeConsumed(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().remove(KEY_CONSUMED);
         prefs.edit().remove(KEY_REMAINED);
+        Logging.logMessage("removed consumed ");
+        Logging.logMessage("clear---" + getConsumed(context));
+        Logging.logMessage("clear remained ---" + getRemained(context));
     }
+
+
 
     public static int getRequired(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

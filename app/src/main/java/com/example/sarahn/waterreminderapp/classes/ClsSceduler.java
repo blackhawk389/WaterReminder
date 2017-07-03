@@ -24,9 +24,9 @@ public class ClsSceduler {
         ComponentName componentName = new ComponentName(context , ClsJobService.class);
 
         JobInfo.Builder builder =  new JobInfo.Builder(0, componentName)
-               // .setPeriodic(300000);
+                .setPeriodic(120000);
 
-                .setPeriodic(duration * 60 * 1000);
+               // .setPeriodic(duration * 60 * 1000);
         //2:06
 
 

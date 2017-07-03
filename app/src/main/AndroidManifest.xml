@@ -44,6 +44,13 @@
         <receiver android:name=".classes.ClsBroadCastReciver" />
         <receiver android:name=".classes.ClsEndBroadcastReciever" />
 
+        <receiver android:name=".classes.ClsRestartAlarm"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".activities.MainScreen"
             android:label="@string/title_activity_act_main_screen"
@@ -53,6 +60,8 @@
         <service android:name=".classes.ClsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
+        <service android:name=".classes.BootService"></service>
+
 
         <service android:name=".classes.ConsumedService"></service>
 
