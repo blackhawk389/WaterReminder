@@ -47,8 +47,6 @@ public class ClsComfirmationDialog {
                                         AlarmManagerUtils.setEndAlarm();
                                         sweetAlertDialog.cancel();
 
-
-
                                         Intent intent = new Intent();
                                         intent.setClass(context, MainScreen.class);
                                         context.startActivity(intent);
@@ -84,6 +82,7 @@ public class ClsComfirmationDialog {
                         displayDialog(context).show();
                     }
                 });
+
 
         return dialog;
 

@@ -20,6 +20,5 @@ public class BootService extends IntentService {
 
         AlarmManagerUtils.setStartAlarm();
         AlarmManagerUtils.setEndAlarm();
-        Logging.logMessage("started service");
     }
 }

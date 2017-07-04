@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
@@ -33,6 +34,8 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
     public static TextView tvThree;
     public static TextView tvSpan;
     public static CustomBtnFonty btnUpdate;
+    public static boolean isFromSettings;
+
 
 
 
@@ -124,10 +127,12 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
                 break;
 
             case R.id.tv_span:
+                isFromSettings = true;
                 ClsTimePickerDialogBuilder.showDialog(getContext()).show(getActivity().getFragmentManager(), "timepicker");
                 break;
             case R.id.recalculate:
                 ClsRequirementCalculator.calculateRequirement(getContext());
+                NotificationUtills.NotificationCounter();
                 ToastLogger.toastMessage("Updated");
                 break;
         }

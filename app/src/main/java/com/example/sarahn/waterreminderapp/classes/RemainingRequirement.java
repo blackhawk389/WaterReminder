@@ -24,23 +24,35 @@ public class RemainingRequirement {
 
 
         consumed = SharedPrefUtils.getConsumed(MyApplication.getContext());
-        consumed = consumed + 250;
-        SharedPrefUtils.setConsumed(MyApplication.getContext(), consumed);
-
-
         required = SharedPrefUtils.getRequired(MyApplication.getContext());
 
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            public void run() {
-                Toast.makeText(context, "Total requirement " + (SharedPrefUtils.getRequired(MyApplication.getContext()))/250
-                        +
-                        " consumed " + (SharedPrefUtils.getConsumed(MyApplication.getContext()))/250 +
-                        " remained glasses " + (SharedPrefUtils.getRemained(MyApplication.getContext()))/250 , Toast.LENGTH_SHORT).show();
-            }
-        });
+        if(consumed != required){
+            consumed = consumed + 250;
+            SharedPrefUtils.setConsumed(MyApplication.getContext(), consumed);
 
-        SharedPrefUtils.setRemained(MyApplication.getContext(), Math.round(required)-consumed);
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                public void run() {
+                    Toast.makeText(context, "Total requirement " + (SharedPrefUtils.getRequired(MyApplication.getContext())) / 250
+                            +
+                            " consumed " + (SharedPrefUtils.getConsumed(MyApplication.getContext())) / 250 +
+                            " remained glasses " + (SharedPrefUtils.getRemained(MyApplication.getContext())) / 250, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            SharedPrefUtils.setRemained(MyApplication.getContext(), Math.round(required) - consumed);
+        }else {
+            return;
+        }
+
+
+
+
+       // required = SharedPrefUtils.getRequired(MyApplication.getContext());
+
+
+
+
         //return  required - consumed;
     }
 

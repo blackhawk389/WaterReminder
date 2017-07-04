@@ -17,9 +17,6 @@ public class ClsEndBroadcastReciever extends BroadcastReceiver {
         JobScheduler jobScheduler =  (JobScheduler) context.getSystemService (Context.JOB_SCHEDULER_SERVICE);
         jobScheduler.cancel(0);
 
-//        Intent endjob = new Intent(context, CancelSchedular.class);
-//        context.startService(endjob);
-
-        Toast.makeText(context, "end alarm reciver", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "End Time", Toast.LENGTH_SHORT).show();
     }
 }

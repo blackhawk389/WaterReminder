@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.borax12.materialdaterangepicker.time.RadialPickerLayout;
 import com.borax12.materialdaterangepicker.time.TimePickerDialog;
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.classes.MyApplication;
 
@@ -40,7 +41,8 @@ public class ClsTimePickerDialogBuilder{
                                                           SharedPrefUtils.setEndMin(MyApplication.getContext(), i3);
 
                                                         ClsComfirmationDialog.displayDialog(context).show();
-                                                          timeDifference = (fromMin - toMin) + ( fromHour - toHour);
+                                                          timeDifference = (toHour - fromHour) - (toMin - fromMin);
+                                                          Logging.logMessage("time difference " + timeDifference);
                                                           timeDifferenceUtil(timeDifference, context);
                                                       }}, now.get(Calendar.HOUR_OF_DAY),
                 now.get(Calendar.MINUTE),
@@ -53,7 +55,7 @@ public class ClsTimePickerDialogBuilder{
 
     private static void timeDifferenceUtil(float td, Context context){
         if(timeDifference > 0){
-            ClsComfirmationDialog.displayWarningDialog(context).show();
+         //   ClsComfirmationDialog.displayWarningDialog(context).show();
         }else if(Math.abs(timeDifference) <= 2 ){
             ClsComfirmationDialog.displayWarningDuration(context).show();
         }

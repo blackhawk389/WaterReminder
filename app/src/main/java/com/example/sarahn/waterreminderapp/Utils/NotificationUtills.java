@@ -27,7 +27,7 @@ public class NotificationUtills {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent(context)).setContentTitle("Notification")
-                .setContentText("Im notification").setSmallIcon(R.drawable.notification)
+                .setContentText("Drink Water").setSmallIcon(R.drawable.notification)
                 .setDefaults(NotificationCompat.DEFAULT_VIBRATE)
                 .setLights(0xFF0000FF, 2000, 1000)
 
@@ -80,8 +80,14 @@ public class NotificationUtills {
 
     public static int NotificationCounter(){
         int diff = ClsTimePickerDialogBuilder.timeDifference;
+        Logging.logMessage("diff in not " + diff);
         int waterGlass = SharedPrefUtils.getRequired(MyApplication.getContext())/250;
+        Logging.logMessage("water in not " + waterGlass);
 
-        return  (Math.abs(diff)) * 60 / waterGlass;
+        Logging.logMessage("minutes in not " + (Math.abs(diff)) * 60 / waterGlass);
+        int i = (Math.abs(diff)) * 60 / waterGlass;
+        return i;
+       // return i / 60;
+
     }
 }

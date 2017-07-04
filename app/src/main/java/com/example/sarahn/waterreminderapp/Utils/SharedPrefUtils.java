@@ -148,8 +148,8 @@ public class SharedPrefUtils {
 
     public static void removeConsumed(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().remove(KEY_CONSUMED);
-        prefs.edit().remove(KEY_REMAINED);
+        prefs.edit().remove(KEY_CONSUMED).commit();
+        prefs.edit().remove(KEY_REMAINED).commit();
         Logging.logMessage("removed consumed ");
         Logging.logMessage("clear---" + getConsumed(context));
         Logging.logMessage("clear remained ---" + getRemained(context));

@@ -29,7 +29,6 @@ public class AlarmManagerUtils {
         time.set(Calendar.MINUTE, SharedPrefUtils.getStartMin(MyApplication.getContext()));
         time.set(Calendar.SECOND, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), pendingIntent(MyApplication.getContext()));
-        Logging.logMessage("start alarm ");
 
     }
 
@@ -38,8 +37,6 @@ public class AlarmManagerUtils {
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 01, intent, PendingIntent.FLAG_ONE_SHOT);
         return pendingIntent;
-
-
     }
 
 
@@ -51,8 +48,6 @@ public class AlarmManagerUtils {
         time.set(Calendar.MINUTE, SharedPrefUtils.getEndMin(MyApplication.getContext()));
         time.set(Calendar.SECOND, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time.getTimeInMillis(), endPendingIntent(MyApplication.getContext()));
-        Logging.logMessage("set end alarm ");
-
     }
 
     private static PendingIntent endPendingIntent(Context context){

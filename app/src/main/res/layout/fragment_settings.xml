@@ -129,7 +129,7 @@
         android:paddingRight="30dp"
         android:paddingTop="5dp"
         android:id="@+id/span_layout"
-        android:layout_below="@+id/climate_layout"
+        android:layout_below="@+id/recalculate"
         >
 
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -157,7 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/recalculate"
-        android:layout_below="@+id/span_layout"
+        android:layout_below="@+id/climate_layout"
         android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
         android:text="Update"

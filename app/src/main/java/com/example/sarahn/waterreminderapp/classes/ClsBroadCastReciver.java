@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.fragments.SettingsFragment;
 
 /**
  * Created by SarahN on 6/19/2017.
@@ -15,7 +17,16 @@ public class ClsBroadCastReciver extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
 
         Toast.makeText(context, "Time begins" , Toast.LENGTH_SHORT).show();
-        SharedPrefUtils.removeConsumed(context);
-        ClsSceduler.Scheduler(context);
+        if(SettingsFragment.isFromSettings){
+            ClsSceduler.Scheduler(context);
+            Logging.logMessage("from setting");
+        }else{
+            SharedPrefUtils.removeConsumed(context);
+            ClsSceduler.Scheduler(context);
+            Logging.logMessage("from regular ");
+            SettingsFragment.isFromSettings = false;
+        }
+
+
     }
 }
