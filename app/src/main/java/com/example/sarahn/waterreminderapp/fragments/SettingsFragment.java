@@ -19,7 +19,6 @@ import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
 import com.example.sarahn.waterreminderapp.classes.ClsAMOrPM;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
-import com.example.sarahn.waterreminderapp.classes.MyApplication;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty;
 import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetActivity;
