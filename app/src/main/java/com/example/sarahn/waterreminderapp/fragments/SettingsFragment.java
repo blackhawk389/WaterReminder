@@ -17,8 +17,8 @@ import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
-import com.example.sarahn.waterreminderapp.classes.ClsAMOrPM;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
+import com.example.sarahn.waterreminderapp.classes.MyApplication;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty;
 import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetActivity;
@@ -26,6 +26,7 @@ import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetWeight;
 
 public class SettingsFragment extends Fragment  implements OnClickListener {
 
+    public static boolean isFromSettings;
     private OnFragmentInteractionListener mListener;
 
     public static TextView tvOne;
@@ -33,8 +34,6 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
     public static TextView tvThree;
     public static TextView tvSpan;
     public static CustomBtnFonty btnUpdate;
-    public static boolean isFromSettings;
-
 
 
 
@@ -66,9 +65,9 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
         tvThree.setText(SharedPrefUtils.getClimate(getContext()));
         btnUpdate.setBackgroundColor(Color.parseColor("#ff0000"));
 
-        tvSpan.setText(SharedPrefUtils.getStartHour(getContext())+":"
-        + SharedPrefUtils.getStartMin(getContext())+ "-" + SharedPrefUtils.getEndHour(getContext())
-        +":" + SharedPrefUtils.getEndMin(getContext()));
+        tvSpan.setText(SharedPrefUtils.getStartHour(MyApplication.getContext())+":"
+        + SharedPrefUtils.getStartMin(MyApplication.getContext())+ "-" + SharedPrefUtils.getEndHour(MyApplication.getContext())
+        +":" + SharedPrefUtils.getEndMin(MyApplication.getContext()));
 
 
         tvOne.setOnClickListener(this);
@@ -131,7 +130,7 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
                 break;
             case R.id.recalculate:
                 ClsRequirementCalculator.calculateRequirement(getContext());
-                NotificationUtills.NotificationCounter();
+  //              NotificationUtills.NotificationCounter();
                 ToastLogger.toastMessage("Updated");
                 break;
         }

@@ -10,6 +10,10 @@ public class ClsCallbackWeight implements NumberPicker.OnValueChangeListener {
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
 
-        ClsBottomSheetWeight.tv.setText(ClsBottomSheetWeight.values[newVal-1]);
+        if(ClsBottomSheetWeight.values.length == 0){
+            return;
+        }else{
+            ClsBottomSheetWeight.tv.setText(ClsBottomSheetWeight.values[newVal-1]);
+        }
     }
 }

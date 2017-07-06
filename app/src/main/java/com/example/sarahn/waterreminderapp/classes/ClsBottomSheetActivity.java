@@ -51,7 +51,6 @@ public class ClsBottomSheetActivity {
                 int activityLevel = numberPickerActivity.getValue()-1;
                 SharedPrefUtils.setActivityLevel(context, values[activityLevel]);
                 ToastLogger.toastMessage(values[activityLevel]);
-                Logging.logMessage("activity" + SharedPrefUtils.getActivityLevel(context));
                 setText(SharedPrefUtils.getActivityLevel(context));
             }
         });

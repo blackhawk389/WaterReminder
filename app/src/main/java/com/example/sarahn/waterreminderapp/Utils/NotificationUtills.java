@@ -79,13 +79,15 @@ public class NotificationUtills {
 
 
     public static int NotificationCounter(){
+        int i;
         int diff = ClsTimePickerDialogBuilder.timeDifference;
-        Logging.logMessage("diff in not " + diff);
         int waterGlass = SharedPrefUtils.getRequired(MyApplication.getContext())/250;
-        Logging.logMessage("water in not " + waterGlass);
-
-        Logging.logMessage("minutes in not " + (Math.abs(diff)) * 60 / waterGlass);
-        int i = (Math.abs(diff)) * 60 / waterGlass;
+        if(SharedPrefUtils.getEndHour(MyApplication.getContext()) -
+                SharedPrefUtils.getStartHour(MyApplication.getContext()) == 0){
+            i = (Math.abs(diff)) / waterGlass;
+        }else{
+            i = (Math.abs(diff)) * 60 / waterGlass;
+        }
         return i;
        // return i / 60;
 

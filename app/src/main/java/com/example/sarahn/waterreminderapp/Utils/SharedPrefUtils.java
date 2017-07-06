@@ -148,8 +148,8 @@ public class SharedPrefUtils {
 
     public static void removeConsumed(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().remove(KEY_CONSUMED).apply();
-        prefs.edit().remove(KEY_REMAINED).apply();
+        prefs.edit().remove(KEY_CONSUMED).commit();
+        prefs.edit().remove(KEY_REMAINED).commit();
         Logging.logMessage("removed consumed ");
         Logging.logMessage("clear---" + getConsumed(context));
         Logging.logMessage("clear remained ---" + getRemained(context));
@@ -168,7 +168,6 @@ public class SharedPrefUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_START_HOUR, consume);
         editor.apply();
-        Logging.logMessage("start" + getStartHour(context));
     }
 
     public static int getStartHour(Context context){
@@ -181,8 +180,6 @@ public class SharedPrefUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_END_HOUR, consume);
         editor.apply();
-        Logging.logMessage("end hour " + getEndHour(context));
-
     }
 
     public static int getEndHour(Context context){
@@ -195,7 +192,6 @@ public class SharedPrefUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_START_MIN, consume);
         editor.apply();
-        Logging.logMessage("start min " + getStartMin(context));
     }
 
     public static int getStartMin(Context context){
@@ -208,7 +204,6 @@ public class SharedPrefUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_END_MIN, consume);
         editor.apply();
-        Logging.logMessage("end mint " + getEndMin(context));
     }
 
     public static int getEndMin(Context context){

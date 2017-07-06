@@ -11,6 +11,12 @@ public class ClsOnValueChangeListmer implements NumberPicker.OnValueChangeListen
 
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-        ClsBottomSheetActivity.tv.setText(ClsBottomSheetActivity.values[newVal-1]);
+        if(ClsBottomSheetActivity.values.length == 0){
+            return;
+        }else{
+            ClsBottomSheetActivity.tv.setText(ClsBottomSheetActivity.values[newVal-1]);
+        }
     }
+
+
 }

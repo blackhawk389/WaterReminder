@@ -42,7 +42,6 @@ public class ClsTimePickerDialogBuilder{
 
                                                         ClsComfirmationDialog.displayDialog(context).show();
                                                           timeDifference = (toHour - fromHour) - (toMin - fromMin);
-                                                          Logging.logMessage("time difference " + timeDifference);
                                                           timeDifferenceUtil(timeDifference, context);
                                                       }}, now.get(Calendar.HOUR_OF_DAY),
                 now.get(Calendar.MINUTE),

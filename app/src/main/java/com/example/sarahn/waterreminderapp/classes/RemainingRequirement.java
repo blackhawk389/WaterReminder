@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 
@@ -19,16 +20,19 @@ public class RemainingRequirement {
 
     public static void difference(final Context context){
 
-        int waterConsumed = 0;
-       // waterConsumed = waterConsumed + 250;
-
-
         consumed = SharedPrefUtils.getConsumed(MyApplication.getContext());
         required = SharedPrefUtils.getRequired(MyApplication.getContext());
 
+
         if(consumed != required){
+
+            Logging.logMessage("is equal requirment " + (consumed != required));
             consumed = consumed + 250;
             SharedPrefUtils.setConsumed(MyApplication.getContext(), consumed);
+            SharedPrefUtils.setRemained(MyApplication.getContext(), Math.round(required) - consumed);
+
+            Logging.logMessage("consumed " + consumed);
+            Logging.logMessage("required  "+required);
 
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new Runnable() {
@@ -40,7 +44,7 @@ public class RemainingRequirement {
                 }
             });
 
-            SharedPrefUtils.setRemained(MyApplication.getContext(), Math.round(required) - consumed);
+
         }else {
             return;
         }
@@ -49,10 +53,6 @@ public class RemainingRequirement {
 
 
        // required = SharedPrefUtils.getRequired(MyApplication.getContext());
-
-
-
-
         //return  required - consumed;
     }
 

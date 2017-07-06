@@ -23,7 +23,7 @@ public class ClimateBottomSheet {
     LayoutInflater inflater;
     public static String[] values;
     NumberPicker numberPickerClimate;
-    static TextView tv;
+    public static TextView tv;
     Context context;
 
     public ClimateBottomSheet(Context context) {
@@ -32,8 +32,8 @@ public class ClimateBottomSheet {
         bottomSheetClimate = new BottomSheetDialog(context);
         inflater = LayoutInflater.from(context);
 
-        // values = new String[]{"resource", "resource" ,"resource"};
-        values =  context.getResources().getStringArray(R.array.climate);
+         values = new String[]{"resource", "resource" ,"resource"};
+      //  values =  context.getResources().getStringArray(R.array.climate);
 
 
     }

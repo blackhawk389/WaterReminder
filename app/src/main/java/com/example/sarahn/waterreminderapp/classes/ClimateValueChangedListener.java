@@ -8,6 +8,11 @@ import android.widget.NumberPicker;
 public class ClimateValueChangedListener implements NumberPicker.OnValueChangeListener {
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-        ClimateBottomSheet.tv.setText(ClimateBottomSheet.values[newVal-1]);
+        if(ClimateBottomSheet.values.length == 0){
+            return;
+        }else{
+            ClimateBottomSheet.tv.setText(ClimateBottomSheet.values[newVal-1]);
+        }
+
     }
 }
