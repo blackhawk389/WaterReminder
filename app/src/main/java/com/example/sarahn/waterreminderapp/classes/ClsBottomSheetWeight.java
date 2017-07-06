@@ -15,6 +15,7 @@ import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
+import com.example.sarahn.waterreminderapp.fragments.SettingsFragment;
 
 /**
  * Created by SarahN on 6/12/2017.
@@ -78,6 +79,14 @@ public class ClsBottomSheetWeight {
     }
 
     private void setText(String weight){
-        ActCalculate.tvOne.setText(weight);
+        if(SettingsFragment.isFromSettigBottomSheet){
+            SettingsFragment.tvOne.setText(weight);
+            Logging.logMessage("from settig bottm sheet");
+            SettingsFragment.isFromSettigBottomSheet = false;
+        }else{
+            ActCalculate.tvOne.setText(weight);
+            Logging.logMessage("from regular bottm sheet");
+        }
+
     }
 }

@@ -17,12 +17,13 @@ import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.classes.ClimateBottomSheet;
+import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetActivity;
+import com.example.sarahn.waterreminderapp.classes.ClsBottomSheetWeight;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 import com.example.sarahn.waterreminderapp.classes.MyApplication;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty;
-import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetActivity;
-import com.example.sarahn.waterreminderapp.settings.ClsBottomSheetWeight;
+
 
 public class SettingsFragment extends Fragment  implements OnClickListener {
 
@@ -34,6 +35,9 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
     public static TextView tvThree;
     public static TextView tvSpan;
     public static CustomBtnFonty btnUpdate;
+
+    public static boolean isFromSettigBottomSheet;
+
 
 
 
@@ -108,18 +112,22 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
 
         switch (v.getId()){
             case R.id.tv_one:
+                isFromSettigBottomSheet = true;
                 ClsBottomSheetWeight bottomSheet = new ClsBottomSheetWeight(getContext());
                 bottomSheet.showDialog().show();
+
                 //make the bellow line of code only works when it return from bottomsheet
                 // tvOne.setText(Integer.toString(SharedPrefUtils.getWeight(this)));
                 break;
 
             case R.id.tv_two:
+                isFromSettigBottomSheet = true;
                 ClsBottomSheetActivity activityBottomSheet = new ClsBottomSheetActivity(getContext());
                 activityBottomSheet.showDialog().show();
                 break;
 
             case R.id.tv_three:
+                isFromSettigBottomSheet = true;
                 ClimateBottomSheet bottomSheetClimate = new ClimateBottomSheet(getContext());
                 bottomSheetClimate.showDialog().show();
                 break;
@@ -130,11 +138,10 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
                 break;
             case R.id.recalculate:
                 ClsRequirementCalculator.calculateRequirement(getContext());
-  //              NotificationUtills.NotificationCounter();
+                NotificationUtills.NotificationCounter();
                 ToastLogger.toastMessage("Updated");
                 break;
         }
-
     }
 
 
@@ -142,5 +149,4 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
         
         public void onFragmentInteraction(Uri uri);
     }
-
 }
