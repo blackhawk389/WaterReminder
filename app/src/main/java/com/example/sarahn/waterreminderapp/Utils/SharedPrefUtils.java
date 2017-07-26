@@ -26,6 +26,8 @@ public class SharedPrefUtils {
     private final static String KEY_START_MIN = "start_min";
     private final static String KEY_END_MIN = "end_min";
 
+    private final static String KEY_ISBOOT = "is_boot";
+
     private final static String KEY_DURATION = "duration";
 
 
@@ -131,13 +133,11 @@ public class SharedPrefUtils {
         editor.apply();
     }
 
-
-
-    synchronized public static void setDuration(Context context, int consume){
+    synchronized public static void setDuration(Context context, int duration){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().remove(KEY_DURATION);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_DURATION, consume);
+        editor.putInt(KEY_DURATION, duration);
         editor.apply();
     }
 
@@ -148,14 +148,26 @@ public class SharedPrefUtils {
 
     public static void removeConsumed(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().remove(KEY_CONSUMED).commit();
-        prefs.edit().remove(KEY_REMAINED).commit();
+        //changing from commit to apply
+        prefs.edit().remove(KEY_CONSUMED).apply();
+        prefs.edit().remove(KEY_REMAINED).apply();
         Logging.logMessage("removed consumed ");
         Logging.logMessage("clear---" + getConsumed(context));
         Logging.logMessage("clear remained ---" + getRemained(context));
     }
 
+    public static boolean getIsBoot(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_ISBOOT, false);
+    }
 
+    synchronized public static void setIsBoot(Context context, boolean boot){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove(KEY_ISBOOT);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(KEY_ISBOOT, boot);
+        editor.apply();
+    }
 
     public static int getRequired(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

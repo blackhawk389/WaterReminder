@@ -8,8 +8,8 @@
     <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:textSize="35dp"
+        android:text="@string/settings"
+        android:textSize="35sp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="Weight"
+            android:text="@string/weight"
             android:layout_gravity="center"/>
 
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="Activity Level"
+            android:text="@string/activity_level"
             android:layout_gravity="center"/>
 
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -85,7 +85,7 @@
             android:onClick="showDialogTVTwo"
             android:background="@drawable/textview_border"
             />
-        />
+
     </LinearLayout>
 
 
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="Climate"
+            android:text="@string/climate"
             android:layout_gravity="center"/>
 
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="Notification Time Span"
+            android:text="@string/notification_time_span"
             android:layout_gravity="center"/>
 
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -160,7 +160,7 @@
         android:layout_below="@+id/climate_layout"
         android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
-        android:text="Update"
+        android:text="@string/update"
         android:layout_marginRight="30dp"/>
 
 </RelativeLayout>

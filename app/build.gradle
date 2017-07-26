@@ -34,6 +34,7 @@ dependencies {
     compile 'com.github.john990:WaveView:v0.9'
     compile 'com.gelitenight.waveview:waveview:1.0.0'
     compile 'me.grantland:autofittextview:0.2.+'
+    compile 'com.firebase:firebase-jobdispatcher:0.7.0'
 
 
 }

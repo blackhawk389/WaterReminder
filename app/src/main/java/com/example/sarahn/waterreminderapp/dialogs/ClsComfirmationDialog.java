@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import com.example.sarahn.waterreminderapp.Utils.AlarmManagerUtils;
 import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
+import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.activities.MainScreen;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 
@@ -15,9 +16,6 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  * Created by SarahN on 6/19/2017.
  */
 public class ClsComfirmationDialog {
-
-
-
 
     public static SweetAlertDialog displayDialog(final Context context){
 
@@ -52,7 +50,7 @@ public class ClsComfirmationDialog {
                                         context.startActivity(intent);
                                     }
                                 })
-                                .setContentText("You can always change settings anytime from setting tab! you will get notification every " + NotificationUtills.NotificationCounter() + " minutes")
+                                .setContentText("You can always change settings anytime from setting tab! you will get notification every " + SharedPrefUtils.getDuration(context) + " minutes")
                                 .show();
 
                     }
@@ -110,6 +108,5 @@ public class ClsComfirmationDialog {
                 });
 
         return dialog;
-
     }
 }

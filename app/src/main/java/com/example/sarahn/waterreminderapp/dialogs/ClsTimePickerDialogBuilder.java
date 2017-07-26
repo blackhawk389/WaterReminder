@@ -1,10 +1,12 @@
 package com.example.sarahn.waterreminderapp.dialogs;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.borax12.materialdaterangepicker.time.RadialPickerLayout;
 import com.borax12.materialdaterangepicker.time.TimePickerDialog;
 import com.example.sarahn.waterreminderapp.Utils.Logging;
+import com.example.sarahn.waterreminderapp.Utils.NotificationUtills;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.classes.MyApplication;
 
@@ -35,22 +37,30 @@ public class ClsTimePickerDialogBuilder{
                                                           toHour = i2;
                                                           toMin = i3;
 
+                                                          Logging.logMessage("times " + fromHour + toHour + fromMin + toMin);
+
+
                                                           SharedPrefUtils.setStartHour(MyApplication.getContext(), i);
                                                           SharedPrefUtils.setEndHour(MyApplication.getContext(), i2);
                                                           SharedPrefUtils.setStartMin(MyApplication.getContext(), i1);
                                                           SharedPrefUtils.setEndMin(MyApplication.getContext(), i3);
 
                                                         ClsComfirmationDialog.displayDialog(context).show();
-                                                          timeDifference = (toHour - fromHour) - (toMin - fromMin);
-                                                          timeDifferenceUtil(timeDifference, context);
+                                                          int hours = (toHour - fromHour) * 60;
+                                                          int min = toMin - fromMin;
+
+                                                          timeDifference = hours + min;
+                                                          Logging.logMessage("time difference " + timeDifference);
+                                                          NotificationUtills.NotificationCounter();
+
+                                                        //  timeDifference = (toHour - fromHour) - (toMin - fromMin);
+                                                         // timeDifferenceUtil(timeDifference, context);
                                                       }}, now.get(Calendar.HOUR_OF_DAY),
                 now.get(Calendar.MINUTE),
-                false);
-
+                true);
 
         return tpd;
     }
-
 
     private static void timeDifferenceUtil(float td, Context context){
         if(timeDifference > 0){
@@ -59,5 +69,4 @@ public class ClsTimePickerDialogBuilder{
             ClsComfirmationDialog.displayWarningDuration(context).show();
         }
     }
-
 }

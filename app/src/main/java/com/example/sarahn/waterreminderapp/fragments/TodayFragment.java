@@ -26,6 +26,7 @@ public class TodayFragment extends Fragment {
     private int calculated;
     private int consumed;
     private int remained;
+    TextView duration;
 
     private OnFragmentInteractionListener mListener;
 
@@ -46,6 +47,7 @@ public class TodayFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_today, container, false);
         final WaveView waveView = (WaveView) view.findViewById(R.id.wave);
         tvInfo = (TextView) view.findViewById(R.id.tv_info);
+        duration = (TextView) view.findViewById(R.id.tv_duration);
         waveView.setWaveColor(Color.parseColor("#add8e6"), Color.parseColor("#8aacb8"));
         waveView.setShowWave(true);
 
@@ -54,6 +56,9 @@ public class TodayFragment extends Fragment {
                         + "  Glasses,  Consumed  " + SharedPrefUtils.getConsumed(MyApplication.getContext())/250
                 + "  Glasses  " +" Remained  " + SharedPrefUtils.getRemained(MyApplication.getContext())/250 + "  Glasses");
       //  waveView.setBorder(mBorderWidth, mBorderColor);
+
+        duration.setText(SharedPrefUtils.getDuration(getContext()) + "");
+        //tomany notification
         mWaveHelper = new AnimationHelper(waveView);
 
         waveView.setShapeType(WaveView.ShapeType.SQUARE);
@@ -65,7 +70,6 @@ public class TodayFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -94,7 +98,7 @@ public class TodayFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Uri uri);
     }
 
     @Override

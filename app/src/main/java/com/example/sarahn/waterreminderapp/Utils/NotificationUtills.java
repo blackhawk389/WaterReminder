@@ -1,5 +1,6 @@
 package com.example.sarahn.waterreminderapp.Utils;
 
+import android.app.Application;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -78,17 +79,23 @@ public class NotificationUtills {
     }
 
 
-    public static int NotificationCounter(){
+    public static void NotificationCounter(){
         int i;
         int diff = ClsTimePickerDialogBuilder.timeDifference;
+        Logging.logMessage("difference " + diff);
+        Logging.logMessage("waterGlass" + SharedPrefUtils.getRequired(MyApplication.getContext()));
         int waterGlass = SharedPrefUtils.getRequired(MyApplication.getContext())/250;
-        if(SharedPrefUtils.getEndHour(MyApplication.getContext()) -
-                SharedPrefUtils.getStartHour(MyApplication.getContext()) == 0){
-            i = (Math.abs(diff)) / waterGlass;
-        }else{
-            i = (Math.abs(diff)) * 60 / waterGlass;
-        }
-        return i;
+//        if(SharedPrefUtils.getEndHour(MyApplication.getContext()) -
+//                SharedPrefUtils.getStartHour(MyApplication.getContext()) == 0){
+//            i = (Math.abs(diff)) / waterGlass;
+//        }else {
+//            i = (Math.abs(diff)) * 60 / waterGlass;
+//        }
+
+        i = (Math.abs(diff)) / waterGlass;
+        Logging.logMessage("duration " + i);
+        SharedPrefUtils.setDuration(MyApplication.getContext(), i);
+
        // return i / 60;
 
     }

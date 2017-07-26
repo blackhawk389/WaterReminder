@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.Logging;
+import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.fragments.SettingsFragment;
 import com.example.sarahn.waterreminderapp.fragments.TodayFragment;
 
@@ -29,7 +31,6 @@ public class MainScreen extends AppCompatActivity
         implements TabLayout.OnTabSelectedListener,
         TodayFragment.OnFragmentInteractionListener,
         SettingsFragment.OnFragmentInteractionListener
-
 {
 
     private ShareActionProvider shareActionProvider;
@@ -50,6 +51,7 @@ public class MainScreen extends AppCompatActivity
         tabs.addTab(tabs.newTab().setText("Today"), true);
         tabs.addTab(tabs.newTab().setText("Settings"));
 
+
         tabs.setOnTabSelectedListener(this);
         ivShare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +59,7 @@ public class MainScreen extends AppCompatActivity
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
 
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hey, download this app! www.google.com");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hey, download this app! https://www.dropbox.com/s/mqxitsfwbur2252/app-debug.apk?dl=0");
 //            String shareBody = "Hey check out my app at: www.google.com"  ;
 //            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
 //            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
@@ -101,6 +103,7 @@ public class MainScreen extends AppCompatActivity
         switch(tabs.getSelectedTabPosition()){
             case 0:
                 FragmentManager fm = getSupportFragmentManager();
+                //including commit
                 ft = fm.beginTransaction();
                 ft.replace(R.id.frame, new TodayFragment());
                 break;

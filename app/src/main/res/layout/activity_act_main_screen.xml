@@ -16,7 +16,7 @@
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Water Reminder"
+            android:text="@string/toolbar_app_name"
             android:layout_gravity="left"
             android:textColor="#000"
             android:id="@+id/toolbar_title" />

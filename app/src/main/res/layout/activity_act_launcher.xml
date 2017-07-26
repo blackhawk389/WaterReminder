@@ -14,7 +14,7 @@
     <com.example.sarahn.waterreminderapp.customsViews.ClsCustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Water App"
+        android:text="@string/water_app"
         android:layout_above="@+id/iv_splash"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"

@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_not"
-            android:text="test"
+            android:text="@string/test_string"
             android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
             />
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="tell  us  what  time  span  you  likely  to  get  notification  about  by  clicking  button  below"/>
+            android:text="@string/notification_span"/>
 
     </me.grantland.widget.AutofitLayout>
 
@@ -65,7 +65,7 @@
         android:layout_centerInParent="true"
         android:layout_below="@+id/iv"
         android:layout_marginTop="10dp"
-        android:text="select time span"/>
+        android:text="@string/select_time_span"/>
 
 
    

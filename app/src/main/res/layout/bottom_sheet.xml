@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:id="@+id/btn_close"
-            android:text="close"/>
+            android:text="@string/bottom_sheet_close"/>
 
         <com.example.sarahn.waterreminderapp.customsViews.CustomBtnFonty
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_save"
-            android:text="save"/>
+            android:text="@string/bottom_sheet_save"/>
 
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
             android:layout_width="wrap_content"

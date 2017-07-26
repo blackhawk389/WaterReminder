@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sarahn.waterreminderapp" >
 
-    <uses-permission android:name="ANDROID.PERMISSION.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
 
     <application
         android:name=".classes.MyApplication"
@@ -59,10 +60,11 @@
 
         <service android:name=".classes.ClsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
         </service>
         <service android:name=".classes.BootService"></service>
-
-
         <service android:name=".classes.ConsumedService"></service>
 
     </application>

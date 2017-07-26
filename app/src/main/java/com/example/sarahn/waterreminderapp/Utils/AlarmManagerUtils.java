@@ -1,16 +1,12 @@
 package com.example.sarahn.waterreminderapp.Utils;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.sarahn.waterreminderapp.classes.ClsBroadCastReciver;
 import com.example.sarahn.waterreminderapp.classes.ClsEndBroadcastReciever;
-import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 import com.example.sarahn.waterreminderapp.classes.MyApplication;
 
 import java.util.Calendar;

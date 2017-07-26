@@ -36,7 +36,7 @@ public class ClsSplashRunnable implements Runnable {
 
     private void isFirstLaunch(){
         intent = new Intent();
-        if(sharedPrefUtils.getIsTrue(context) == true){
+        if(SharedPrefUtils.getIsTrue(context)){
             intent.setClass(context, ActViewPager.class);
 
         }else{

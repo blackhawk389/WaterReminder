@@ -28,14 +28,14 @@
         <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To calculate water requirement following"
+            android:text="@string/to_calculate_text"
             android:id="@+id/tv"/>
     </me.grantland.widget.AutofitLayout>
 
     <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="information needed"
+        android:text="@string/to_calculate_part"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/autofit"
         android:id="@+id/tv_extends"/>
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:text="Weight"
+                android:text="@string/weight"
                 android:layout_gravity="center"/>
 
             <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:text="Activity Level"
+                android:text="@string/activity_level"
                 android:layout_gravity="center"/>
 
             <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:text="Climate"
+                android:text="@string/climate"
                 android:layout_gravity="center"/>
 
             <com.example.sarahn.waterreminderapp.customsViews.FontyCustomTextView
@@ -144,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Calculate"
+        android:text="@string/calculate"
         android:id="@+id/btn_calculate"
         android:layout_marginBottom="10dp"
         android:layout_centerInParent="true"/>

@@ -18,18 +18,18 @@ public class ClsBroadCastReciver extends BroadcastReceiver{
 
         Toast.makeText(context, "Time begins" , Toast.LENGTH_SHORT).show();
 
-
                     if(SettingsFragment.isFromSettings){
                         ClsSceduler.Scheduler(context);
                         Logging.logMessage("from setting");
+                    }else if(SharedPrefUtils.getIsBoot(context)){
+                        ClsSceduler.Scheduler(context);
+                        Logging.logMessage("from boot ");
+                        SharedPrefUtils.setIsBoot(context, false);
                     }else{
                         SharedPrefUtils.removeConsumed(context);
                         ClsSceduler.Scheduler(context);
                         Logging.logMessage("from regular ");
                         SettingsFragment.isFromSettings = false;
                     }
-
-
-
     }
 }

@@ -26,7 +26,7 @@ public class ViewPagerAdapter extends PagerAdapter implements View.OnClickListen
     public ViewPagerAdapter(Context context, int[] source) {
         this.context = context;
         this.source = source;
-        layoutInflater = layoutInflater.from(context);
+        layoutInflater = LayoutInflater.from(context);
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/gb.otf");
         title = new String[]{"Get" +
                 " periodic" +

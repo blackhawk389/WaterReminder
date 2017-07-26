@@ -4,9 +4,6 @@ import android.app.IntentService;
 import android.content.Intent;
 
 import com.example.sarahn.waterreminderapp.Utils.AlarmManagerUtils;
-import com.example.sarahn.waterreminderapp.Utils.Logging;
-
-import java.util.Date;
 
 /**
  * Created by SarahN on 7/3/2017.

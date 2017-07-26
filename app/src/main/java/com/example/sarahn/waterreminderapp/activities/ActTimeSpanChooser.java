@@ -10,7 +10,6 @@ import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.classes.ClsRequirementCalculator;
 import com.example.sarahn.waterreminderapp.classes.MyApplication;
-import com.example.sarahn.waterreminderapp.dialogs.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 
 public class ActTimeSpanChooser extends Activity implements View.OnClickListener{

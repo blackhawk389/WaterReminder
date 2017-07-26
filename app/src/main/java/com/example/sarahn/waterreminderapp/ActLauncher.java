@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.sarahn.waterreminderapp.Utils.Logging;
+
 import com.example.sarahn.waterreminderapp.classes.ClsSplashRunnable;
 
 

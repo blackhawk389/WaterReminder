@@ -1,6 +1,5 @@
 package com.example.sarahn.waterreminderapp.dialogs;
 
-import android.app.Activity;
 import android.content.Context;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;

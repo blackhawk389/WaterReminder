@@ -139,7 +139,8 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
             case R.id.recalculate:
                 ClsRequirementCalculator.calculateRequirement(getContext());
                 NotificationUtills.NotificationCounter();
-                ToastLogger.toastMessage("Updated");
+                ToastLogger.toastMessage("Updated! new duration " + SharedPrefUtils.getDuration(getContext()));
+                ToastLogger.toastMessage("Will be applicable on next span");
                 break;
         }
     }
@@ -147,6 +148,6 @@ public class SettingsFragment extends Fragment  implements OnClickListener {
 
     public interface OnFragmentInteractionListener {
         
-        public void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Uri uri);
     }
 }

@@ -3,12 +3,11 @@ package com.example.sarahn.waterreminderapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sarahn.waterreminderapp.Utils.Logging;
+
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
 import com.example.sarahn.waterreminderapp.activities.ActTimeSpanChooser;
 import com.example.sarahn.waterreminderapp.dialogs.BackpressedDialog;
@@ -91,14 +90,9 @@ public class ActCalculate extends Activity implements View.OnClickListener{
 
     private boolean validateFeilds(){
         boolean isTrue;
-        if(tvOne.getText().toString().matches("") ||
+        isTrue = !(tvOne.getText().toString().matches("") ||
                 tvTwo.getText().toString().matches("") ||
-                tvThree.getText().toString().matches("")){
-
-            isTrue = false;
-        }else{
-            isTrue = true;
-        }
+                tvThree.getText().toString().matches(""));
         return isTrue;
     }
 

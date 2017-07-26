@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import com.example.sarahn.waterreminderapp.ActCalculate;
 import com.example.sarahn.waterreminderapp.R;
+import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.Utils.ToastLogger;
+import com.example.sarahn.waterreminderapp.fragments.SettingsFragment;
 
 /**
  * Created by SarahN on 6/16/2017.
@@ -32,13 +34,13 @@ public class ClimateBottomSheet {
         bottomSheetClimate = new BottomSheetDialog(context);
         inflater = LayoutInflater.from(context);
 
-         values = new String[]{"resource", "resource" ,"resource"};
-      //  values =  context.getResources().getStringArray(R.array.climate);
+        values = new String[]{"Moderate", "Hot", "Cold"};
+        //  values =  context.getResources().getStringArray(R.array.climate);
 
 
     }
 
-    public BottomSheetDialog showDialog(){
+    public BottomSheetDialog showDialog() {
         View sheetView = inflater.inflate(R.layout.bottom_sheet_climate, null);
         numberPickerClimate = (NumberPicker) sheetView.findViewById(R.id.np);
         tv = (TextView) sheetView.findViewById(R.id.tv);
@@ -49,7 +51,7 @@ public class ClimateBottomSheet {
             @Override
             public void onClick(View v) {
                 bottomSheetClimate.dismiss();
-                int climate = numberPickerClimate.getValue()-1;
+                int climate = numberPickerClimate.getValue() - 1;
                 SharedPrefUtils.setClimate(context, values[climate]);
                 ToastLogger.toastMessage(values[climate]);
                 setText(SharedPrefUtils.getClimate(context));
@@ -76,7 +78,19 @@ public class ClimateBottomSheet {
         return bottomSheetClimate;
     }
 
-    private void setText(String name){
-        ActCalculate.tvThree.setText(name);
+//    private void setText(String name){
+//        ActCalculate.tvThree.setText(name);
+//    }
+
+    private void setText(String name) {
+        if (SettingsFragment.isFromSettigBottomSheet) {
+            SettingsFragment.tvThree.setText(name);
+            Logging.logMessage("from settig bottm sheet");
+            SettingsFragment.isFromSettigBottomSheet = false;
+        } else {
+            ActCalculate.tvThree.setText(name);
+            Logging.logMessage("from regular bottm sheet");
+        }
+
     }
 }

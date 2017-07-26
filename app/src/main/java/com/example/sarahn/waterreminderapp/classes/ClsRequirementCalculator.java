@@ -32,6 +32,7 @@ public class ClsRequirementCalculator {
 
         weight = weight /0.024f;
 
+
         try {
            climateCal =  ClimateCal();
            activityCal = ActivityLevelCal();
