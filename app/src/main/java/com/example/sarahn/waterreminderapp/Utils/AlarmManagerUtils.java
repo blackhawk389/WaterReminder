@@ -30,7 +30,6 @@ public class AlarmManagerUtils {
 
     private static PendingIntent pendingIntent(Context context){
         Intent intent = new Intent(context, ClsBroadCastReciver.class);
-
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 01, intent, PendingIntent.FLAG_ONE_SHOT);
         return pendingIntent;
     }

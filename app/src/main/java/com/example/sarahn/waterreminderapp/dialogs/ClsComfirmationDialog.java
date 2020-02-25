@@ -1,7 +1,9 @@
 package com.example.sarahn.waterreminderapp.dialogs;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import com.example.sarahn.waterreminderapp.Utils.AlarmManagerUtils;
@@ -10,73 +12,66 @@ import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
 import com.example.sarahn.waterreminderapp.activities.MainScreen;
 import com.example.sarahn.waterreminderapp.dialogs.ClsTimePickerDialogBuilder;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by SarahN on 6/19/2017.
  */
 public class ClsComfirmationDialog {
 
-    public static SweetAlertDialog displayDialog(final Context context){
+    public static AlertDialog.Builder displayDialog(final Context context){
 
-       SweetAlertDialog dialog =  new SweetAlertDialog (context, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("Selected Time Span")
-                .setContentText("From " + ClsTimePickerDialogBuilder.fromHour +
+        AlertDialog.Builder dialog =  new AlertDialog.Builder (context)
+                .setTitle("Selected Time Span")
+                .setMessage("From " + ClsTimePickerDialogBuilder.fromHour +
                         ":" + ClsTimePickerDialogBuilder.fromMin + " To " + ClsTimePickerDialogBuilder.toHour +
                         ":" + ClsTimePickerDialogBuilder.toMin)
 
-                .setCancelText("Set again")
-                .setConfirmText("Confirm")
-                .showCancelButton(true)
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                .setNegativeButton("Set Again", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-
-                        sweetAlertDialog.cancel();
-
-                        new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
-                                .setTitleText("Selected Time Span")
-                                .setConfirmText("OK")
-                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                    @Override
-                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-
-                                        AlarmManagerUtils.setStartAlarm();
-                                        AlarmManagerUtils.setEndAlarm();
-                                        sweetAlertDialog.cancel();
-
-                                        Intent intent = new Intent();
-                                        intent.setClass(context, MainScreen.class);
-                                        context.startActivity(intent);
-                                    }
-                                })
-                                .setContentText("You can always change settings anytime from setting tab! you will get notification every " + SharedPrefUtils.getDuration(context) + " minutes")
-                                .show();
+                    public void onClick(DialogInterface dialog, int which) {
 
                     }
                 })
-                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+               .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       dialog.dismiss();
+                       new AlertDialog.Builder(context)
+                               .setTitle("Selected Time Span")
+                               .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                   @Override
+                                   public void onClick(DialogInterface dialog, int which) {
+                                       dialog.dismiss();
+                                       AlarmManagerUtils.setStartAlarm();
+                                       AlarmManagerUtils.setEndAlarm();
+                                       Intent intent = new Intent();
+                                       intent.setClass(context, MainScreen.class);
+                                       context.startActivity(intent);
+                                   }
+                               })
+                               .setMessage("You can always change settings anytime from setting tab! you will get notification every " + SharedPrefUtils.getDuration(context) + " minutes")
+                               .show();
+                   }
+               })
+                .setNegativeButton("Try Again", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(SweetAlertDialog sDialog) {
+                    public void onClick(DialogInterface dialog, int which) {
                         ClsTimePickerDialogBuilder.showDialog(context).show(((Activity) context).getFragmentManager(), "timepicker");
-                        sDialog.cancel();
-
+                        dialog.cancel();
                     }
                 });
-              //  .show();
 
         return dialog;
     }
 
-    public static SweetAlertDialog displayWarningDialog(final Context context){
+    public static AlertDialog.Builder displayWarningDialog(final Context context){
 
-        SweetAlertDialog dialog =  new SweetAlertDialog (context, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("Re Select")
-                .setContentText("start time should be not be less than end time")
-                .setConfirmText("Okay")
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+        AlertDialog.Builder dialog =  new  AlertDialog.Builder (context)
+                .setTitle("Re Select")
+                .setMessage("start time should be not be less than end time")
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                    public void onClick(DialogInterface dialog, int which) {
                         displayDialog(context).show();
                     }
                 });
@@ -86,24 +81,22 @@ public class ClsComfirmationDialog {
 
     }
 
-    public static SweetAlertDialog displayWarningDuration(final Context context){
+    public static AlertDialog.Builder displayWarningDuration(final Context context){
 
-        final SweetAlertDialog dialog =  new SweetAlertDialog (context, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("Unrealistic duration")
-                .setContentText("The duration should be atleast of 8 hours")
-                .setConfirmText("set again")
-                .setCancelText("Okay")
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+        final AlertDialog.Builder dialog =  new AlertDialog.Builder (context)
+                .setTitle("Unrealistic duration")
+                .setMessage("The duration should be atleast of 8 hours")
+                .setPositiveButton("set again", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                       ClsTimePickerDialogBuilder.showDialog(context).show(((Activity) context).getFragmentManager(), "timepicker");
+                    public void onClick(DialogInterface dialog, int which) {
+                        ClsTimePickerDialogBuilder.showDialog(context).show(((Activity) context).getFragmentManager(), "timepicker");
 
                     }
                 })
-                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                .setNegativeButton("", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        sweetAlertDialog.cancel();
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
                 });
 

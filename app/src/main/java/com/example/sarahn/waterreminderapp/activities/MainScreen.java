@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.sarahn.waterreminderapp.R;
 import com.example.sarahn.waterreminderapp.Utils.Logging;
 import com.example.sarahn.waterreminderapp.Utils.SharedPrefUtils;
+import com.example.sarahn.waterreminderapp.dialogs.BackpressedDialog;
 import com.example.sarahn.waterreminderapp.fragments.SettingsFragment;
 import com.example.sarahn.waterreminderapp.fragments.TodayFragment;
 
@@ -138,6 +139,8 @@ public class MainScreen extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+
+      //  BackpressedDialog.showDialog(this);
         super.onBackPressed();
         moveTaskToBack(true);
     }

@@ -28,7 +28,6 @@ public class ClsTimePickerDialogBuilder{
         Calendar now = Calendar.getInstance();
 
         TimePickerDialog tpd;
-
         tpd = TimePickerDialog.newInstance(new TimePickerDialog.OnTimeSetListener() {
                                                       @Override
                                                       public void onTimeSet(RadialPickerLayout radialPickerLayout, int i, int i1, int i2, int i3) {
